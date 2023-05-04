@@ -14,5 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('login', function () {
+    return view('auth.login');
+});
+
+Route::prefix('proyectos')->group(function () {
+    Route::get('/', function() {
+        return view('proyectos.index');
+        });
+
+    Route::get('show/{id}', function ($id) {
+        return view('proyectos.show', array('id'=>$id));
+        });
+
+    Route::get('create', function() {
+        return view('proyectos.create');
+    });
+
+    Route::get('edit/{id}', function ($id) {
+        return view('proyectos.edit', array('id'=>$id));
+    });
 });
