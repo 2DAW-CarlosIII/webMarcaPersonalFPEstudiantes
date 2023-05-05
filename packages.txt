@@ -1,0 +1,44 @@
+ii  libapache2-mod-php                   2:7.4+76                                 all          server-side, HTML-embedded scripting language (Apache 2 module) (default)
+rc  libapache2-mod-php7.3                7.3.31-1~deb10u1                         amd64        server-side, HTML-embedded scripting language (Apache 2 module)
+ii  libapache2-mod-php7.4                7.4.25-1+deb11u1                         amd64        server-side, HTML-embedded scripting language (Apache 2 module)
+ii  php-common                           2:76                                     all          Common files for PHP packages
+ii  php-composer-ca-bundle               1.2.9-1                                  all          utility library to find a path to the system CA bundle
+ii  php-composer-semver                  3.2.4-2                                  all          utilities, version constraint parsing and validation
+ii  php-composer-spdx-licenses           1.5.5-2                                  all          SPDX licenses list and validation library
+ii  php-composer-xdebug-handler          1.4.5-1                                  all          Restarts a process without Xdebug
+ii  php-json-schema                      5.2.10-2                                 all          implementation of JSON schema
+ii  php-mbstring                         2:7.4+76                                 all          MBSTRING module for PHP [default]
+ii  php-mysql                            2:7.4+76                                 all          MySQL module for PHP [default]
+ii  php-pgsql                            2:7.4+76                                 all          PostgreSQL module for PHP [default]
+ii  php-psr-container                    1.0.0-2                                  all          Common Container Interface (PHP FIG PSR-11)
+ii  php-psr-log                          1.1.3-2                                  all          common interface for logging libraries
+ii  php-react-promise                    2.7.0-2                                  all          lightweight implementation of CommonJS Promises/A for PHP
+ii  php-sqlite3                          2:7.4+76                                 all          SQLite3 module for PHP [default]
+ii  php-symfony-console                  4.4.19+dfsg-2                            all          run tasks from the command line
+ii  php-symfony-filesystem               4.4.19+dfsg-2                            all          basic filesystem utilities
+ii  php-symfony-finder                   4.4.19+dfsg-2                            all          find files and directories
+ii  php-symfony-polyfill-php80           1.22.1-1                                 all          Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions
+ii  php-symfony-process                  4.4.19+dfsg-2                            all          execute commands in sub-processes
+ii  php-symfony-service-contracts        1.1.10-2                                 all          Generic abstractions related to writing services
+ii  php-xdebug                           3.0.2+2.9.8+2.8.1+2.5.5-2                amd64        Xdebug Module for PHP
+ii  php-xml                              2:7.4+76                                 all          DOM, SimpleXML, WDDX, XML, and XSL module for PHP [default]
+rc  php7.3-cli                           7.3.31-1~deb10u1                         amd64        command-line interpreter for the PHP scripting language
+rc  php7.3-common                        7.3.31-1~deb10u1                         amd64        documentation, examples and common module for PHP
+rc  php7.3-json                          7.3.31-1~deb10u1                         amd64        JSON module for PHP
+rc  php7.3-mbstring                      7.3.31-1~deb10u1                         amd64        MBSTRING module for PHP
+rc  php7.3-mysql                         7.3.31-1~deb10u1                         amd64        MySQL module for PHP
+rc  php7.3-opcache                       7.3.31-1~deb10u1                         amd64        Zend OpCache module for PHP
+rc  php7.3-pgsql                         7.3.31-1~deb10u1                         amd64        PostgreSQL module for PHP
+rc  php7.3-readline                      7.3.31-1~deb10u1                         amd64        readline module for PHP
+rc  php7.3-sqlite3                       7.3.31-1~deb10u1                         amd64        SQLite3 module for PHP
+rc  php7.3-xml                           7.3.31-1~deb10u1                         amd64        DOM, SimpleXML, WDDX, XML, and XSL module for PHP
+ii  php7.4-cli                           7.4.25-1+deb11u1                         amd64        command-line interpreter for the PHP scripting language
+ii  php7.4-common                        7.4.25-1+deb11u1                         amd64        documentation, examples and common module for PHP
+ii  php7.4-json                          7.4.25-1+deb11u1                         amd64        JSON module for PHP
+ii  php7.4-mbstring                      7.4.25-1+deb11u1                         amd64        MBSTRING module for PHP
+ii  php7.4-mysql                         7.4.25-1+deb11u1                         amd64        MySQL module for PHP
+ii  php7.4-opcache                       7.4.25-1+deb11u1                         amd64        Zend OpCache module for PHP
+ii  php7.4-pgsql                         7.4.25-1+deb11u1                         amd64        PostgreSQL module for PHP
+ii  php7.4-readline                      7.4.25-1+deb11u1                         amd64        readline module for PHP
+ii  php7.4-sqlite3                       7.4.25-1+deb11u1                         amd64        SQLite3 module for PHP
+ii  php7.4-xml                           7.4.25-1+deb11u1                         amd64        DOM, SimpleXML, XML, and XSL module for PHP
