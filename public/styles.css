@@ -1,0 +1,6 @@
+#bienvenida{
+    height: 100vh;
+    background: url('/images/carlosIIIhero.jpeg') no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+}
