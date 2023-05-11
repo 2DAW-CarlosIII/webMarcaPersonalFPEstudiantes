@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProyectoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,28 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/',  [HomeController::class, 'getHome']);
 
 Route::get('login', function () {
     return view('auth.login');
 });
 
 Route::prefix('proyectos')->group(function () {
-    Route::get('/', function() {
-        return view('proyectos.index');
-        });
-
-    Route::get('show/{id}', function ($id) {
-        return view('proyectos.show', array('id'=>$id));
-        });
-
-    Route::get('create', function() {
-        return view('proyectos.create');
-    });
-
-    Route::get('edit/{id}', function ($id) {
-        return view('proyectos.edit', array('id'=>$id));
-    });
+    Route::get('/', [ProyectoController::class, 'getIndex']);
+    Route::get('show/{id}', [ProyectoController::class, 'getShow']);
+    Route::get('create', [ProyectoController::class, 'getCreate']);
+    Route::get('edit/{id}', [ProyectoController::class, 'getEdit']);
 });
