@@ -15,6 +15,15 @@ class ProyectoController extends Controller
         $proyecto = Proyecto::findOrFail($id);
         return view('proyectos.show', array('id'=>$id, 'proyecto' => $proyecto));
     }
+    public function getSearch(Request $request) {
+        $search = $request->input('search');
+        $resultados = Proyecto::query()
+                    ->where('nombre', 'LIKE', "%{$search}%")
+                    ->orWhere('metadatos', 'LIKE', "%{$search}%")
+                    ->get();
+        return view('proyectos.index', array('arrayProyectos' => $resultados));
+    }
+
     public function getCreate() {
         return view('proyectos.create');
     }
@@ -36,7 +45,6 @@ class ProyectoController extends Controller
     }
 
     public function putStore($id, Request $request) {
-        //TODO: lógica para editar proyecto en BBDD
         $proyectoEdit = Proyecto::findOrFail($id);
         $proyectoEdit->nombre = $request->input('nombre');
         $proyectoEdit->metadatos = $request->input('metadatos');

@@ -23,8 +23,11 @@ Route::get('login', function () {
 Route::prefix('proyectos')->group(function () {
     Route::get('/', [ProyectoController::class, 'getIndex']);
     Route::get('show/{id}', [ProyectoController::class, 'getShow']);
+
     Route::get('create', [ProyectoController::class, 'getCreate']);
     Route::post('create',[ProyectoController::class, 'store']);
     Route::get('edit/{id}', [ProyectoController::class, 'getEdit']);
     Route::put('edit/{id}', [ProyectoController::class, 'putStore']);
 });
+
+Route::get('/search/', [ProyectoController::class, 'getSearch'])->name('search');
