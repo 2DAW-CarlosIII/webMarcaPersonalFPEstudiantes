@@ -22,38 +22,5 @@ class ProyectoController extends Controller
         //TODO: lógica para editar proyecto en BBDD
         return ('Proyecto editado con éxito');
     }
-
-    private static $arrayProyectos = array(
-        array(
-            'docente' => 'Alberto Sierra',
-            'nombre' => 'Web Marca Personal C3',
-            'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
-        ),
-        array(
-            'docente' => 'MCruz Sanz',
-            'nombre' => 'Encuentro Empresarial C3',
-            'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
-        ),
-        array(
-            'docente' => 'Victor Garrido',
-            'nombre' => 'C3Runner',
-            'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
-        ),
-        array(
-            'docente' => 'Vicente López',
-            'nombre' => 'InmoC3',
-            'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
-        ),
-        array(
-            'docente' => 'Francisco Ortiz',
-            'nombre' => 'Andrómeda',
-            'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
-        )
-    );
 }
 
