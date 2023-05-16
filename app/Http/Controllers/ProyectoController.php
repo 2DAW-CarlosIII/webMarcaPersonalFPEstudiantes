@@ -3,23 +3,50 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Proyecto;
 
 class ProyectoController extends Controller
 {
     public function getIndex() {
-        return view('proyectos.index', array('arrayProyectos' => self::$arrayProyectos));
+        $proyectos = Proyecto::all();
+        return view('proyectos.index', array('arrayProyectos' => $proyectos));
     }
     public function getShow($id) {
-        return view('proyectos.show', array('id'=>$id, 'proyecto' => self::$arrayProyectos[$id]));
+        $proyecto = Proyecto::findOrFail($id);
+        return view('proyectos.show', array('id'=>$id, 'proyecto' => $proyecto));
     }
     public function getCreate() {
         return view('proyectos.create');
     }
     public function getEdit($id) {
-        return view('proyectos.edit', array('id'=>$id, 'proyecto' => self::$arrayProyectos[$id]));
+        $proyecto = Proyecto::findOrFail($id);
+        return view('proyectos.edit', array('id'=>$id, 'proyecto' => $proyecto));
     }
-    public function putStore($id) {
+    public function store(Request $request){
+        $proyectoNuevo = new Proyecto();
+        $proyectoNuevo->nombre = $request->input('nombre');
+        $proyectoNuevo->metadatos = $request->input('metadatos');
+        $proyectoNuevo->docente_id = $request->input('docente_id');
+        $proyectoNuevo->url_github = $request->input('url_github');
+        $proyectoNuevo->save();
+
+        $url = action([ProyectoController::class, 'getShow'], array('id' => $proyectoNuevo->id));
+        return redirect($url);
+
+    }
+
+    public function putStore($id, Request $request) {
         //TODO: lógica para editar proyecto en BBDD
+        $proyectoEdit = Proyecto::findOrFail($id);
+        $proyectoEdit->nombre = $request->input('nombre');
+        $proyectoEdit->metadatos = $request->input('metadatos');
+        $proyectoEdit->docente_id = $request->input('docente_id');
+        $proyectoEdit->url_github = $request->input('url_github');
+        $proyectoEdit->save();
+
+        $url = action([ProyectoController::class, 'getShow'], array('id' => $proyectoEdit->id));
+        return redirect($url);
+
         return ('Proyecto editado con éxito');
     }
 }
