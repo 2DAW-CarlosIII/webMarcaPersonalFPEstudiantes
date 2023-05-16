@@ -19,7 +19,7 @@
 
                         <div class="form-group">
                             <label for="title">Docente</label>
-                            <input type="text" name="docente" id="docente" class="form-control">
+                            <input type="text" name="docente_id" id="docente_id" class="form-control">
                         </div>
 
                         <div class="form-group">
