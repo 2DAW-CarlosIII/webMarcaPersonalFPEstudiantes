@@ -5,13 +5,13 @@
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
-          <h1 class="mb-3">Marca Personal Carlos III</h1>
+          <h1 class="mb-3">Marca Personal FP</h1>
           <h5 class="mb-4">
             Proyectos y trabajos realizados por estudiantes
           </h5>
-          <a class="btn btn-outline-light btn-lg m-2" href="https://cifpcarlos3.es/"
+          <a class="btn btn-outline-light btn-lg m-2" href="https://todofp.es/"
             role="button" rel="nofollow" target="_blank">Busca por Proyectos</a>
-          <a class="btn btn-outline-light btn-lg m-2" href="https://cifpcarlos3.es/"
+          <a class="btn btn-outline-light btn-lg m-2" href="https://todofp.es/"
             target="_blank" role="button">Busca por Ciclo</a>
         </div>
       </div>

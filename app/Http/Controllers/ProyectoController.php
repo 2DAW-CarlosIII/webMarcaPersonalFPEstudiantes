@@ -18,6 +18,10 @@ class ProyectoController extends Controller
     public function getEdit($id) {
         return view('proyectos.edit', array('id'=>$id, 'proyecto' => self::$arrayProyectos[$id]));
     }
+    public function putStore($id) {
+        //TODO: lógica para editar proyecto en BBDD
+        return ('Proyecto editado con éxito');
+    }
 
     private static $arrayProyectos = array(
         array(
