@@ -28,6 +28,7 @@ Route::prefix('proyectos')->group(function () {
     Route::post('create',[ProyectoController::class, 'store']);
     Route::get('edit/{id}', [ProyectoController::class, 'getEdit']);
     Route::put('edit/{id}', [ProyectoController::class, 'putStore']);
+    Route::get('/search/', [ProyectoController::class, 'getSearch'])->name('search');
 });
 
-Route::get('/search/', [ProyectoController::class, 'getSearch'])->name('search');
+

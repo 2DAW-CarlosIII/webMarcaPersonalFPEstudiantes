@@ -54,8 +54,6 @@ class ProyectoController extends Controller
 
         $url = action([ProyectoController::class, 'getShow'], array('id' => $proyectoEdit->id));
         return redirect($url);
-
-        return ('Proyecto editado con éxito');
     }
 }
 
