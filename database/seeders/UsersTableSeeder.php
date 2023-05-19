@@ -16,10 +16,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        self::seedAdmin();
         self::seedUsers();
         $this->command->info('¡Tabla users inicializada con datos!');
     }
     private function seedUsers()
+    {
+        $user = User::factory(6)->create();
+    }
+    private function seedAdmin()
     {
         DB::table('users')->truncate();
         DB::table('users')->insert([
@@ -28,6 +33,5 @@ class UsersTableSeeder extends Seeder
                 'email'=>env('WEB_ADMIN_EMAIL'),
                 'password'=>bcrypt(env('WEB_ADMIN_PASS'))
             ]);
-        $user = User::factory(6)->create();
     }
  }
