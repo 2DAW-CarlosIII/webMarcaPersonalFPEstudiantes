@@ -20,7 +20,7 @@ class UserResource extends JsonResource
             'attributes' => [
                 'first_name' => $this->first_name,
                 'email' => $this->email,
-                'proyectos' => ProyectoResource::collection($this->proyectos)
+                'proyectos' => $this->proyectos
             ]
         ];
     }

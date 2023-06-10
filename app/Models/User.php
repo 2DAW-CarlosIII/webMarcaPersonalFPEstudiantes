@@ -44,7 +44,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function proyectos() : BelongsToMany
+    public function proyectos()
     {
         return $this->belongsToMany(Proyecto::class);
     }
