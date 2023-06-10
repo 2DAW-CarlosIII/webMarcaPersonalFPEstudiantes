@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LoginWithGoogleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return ['Laravel' => app()->version()];
+});
+
+Route::controller(LoginWithGoogleController::class)->group(function(){
+    Route::get('authorized/google', 'redirectToGoogle')->name('auth.google');
+    Route::get('authorized/google/callback', 'handleGoogleCallback');
 });
 
 require __DIR__.'/auth.php';
