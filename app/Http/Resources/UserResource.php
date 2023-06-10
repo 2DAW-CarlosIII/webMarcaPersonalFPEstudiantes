@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProyectoResource extends JsonResource
+class UserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,10 +18,9 @@ class ProyectoResource extends JsonResource
             'id' => $this->id,
 //                'attributes' => parent::toArray($request)
             'attributes' => [
-                'nombre' => $this->nombre,
-                'metadatos' => $this->metadatos,
-                'url_github' => $this->url_github,
-                'estudiantes' => $this->users
+                'first_name' => $this->first_name,
+                'email' => $this->email,
+                'proyectos' => ProyectoResource::collection($this->proyectos)
             ]
         ];
     }

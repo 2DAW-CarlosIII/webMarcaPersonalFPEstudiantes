@@ -15,4 +15,9 @@ class Proyecto extends Model
         'url_github',
         'metadatos'
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
