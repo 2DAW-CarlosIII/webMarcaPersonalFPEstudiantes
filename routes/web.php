@@ -1,11 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProyectoController;
-use App\Http\Controllers\HomeController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,36 +13,8 @@ use Inertia\Inertia;
 |
 */
 
-/* Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-}); */
-
-Route::get('/',  [HomeController::class, 'getHome']);
-
-Route::group(['prefix' => 'proyectos', 'middleware' => 'auth'], function () {
-    Route::get('/', [ProyectoController::class, 'getIndex']);
-    Route::get('show/{id}', [ProyectoController::class, 'getShow']);
-
-    Route::get('create', [ProyectoController::class, 'getCreate']);
-    Route::post('create',[ProyectoController::class, 'store']);
-    Route::get('edit/{id}', [ProyectoController::class, 'getEdit']);
-    Route::put('edit/{id}', [ProyectoController::class, 'putStore']);
-    Route::get('/search/', [ProyectoController::class, 'getSearch'])->name('search');
-});
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::get('/', function () {
+    return ['Laravel' => app()->version()];
 });
 
 require __DIR__.'/auth.php';
