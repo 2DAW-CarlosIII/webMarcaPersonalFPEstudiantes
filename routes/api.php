@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProyectoController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\TokenController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,8 +17,15 @@ use App\Http\Controllers\API\UserController;
 */
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return $request->user();
+    $user = $request->user();
+    $user->fullName = $user->first_name;
+    return $user;
 });
 
 Route::apiResource('users', UserController::class);
 Route::apiResource('proyectos', ProyectoController::class);
+
+// emite un nuevo token
+Route::post('tokens', [TokenController::class, 'store']);
+// elimina el token del usuario autenticado
+Route::delete('tokens', [TokenController::class, 'destroy'])->middleware('auth:sanctum');
