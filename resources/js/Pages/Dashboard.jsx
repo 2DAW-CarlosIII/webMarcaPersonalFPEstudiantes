@@ -1,3 +1,24 @@
+import { Admin, Resource, ListGuesser } from "react-admin";
+// import { dataProvider } from '@/Providers/dataProvider'
+import { authProvider } from '@/Providers/authProvider'
+import loginPage from '@/Pages/Auth/Login';
+import jsonServerProvider from 'ra-data-json-server';
+
+const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+
+const Dasboard = () => (
+  <Admin
+    dataProvider={dataProvider}
+    authProvider={authProvider}
+    loginPage={loginPage}
+    basename="/dashboard"
+  >
+    <Resource name="users" list={ListGuesser} />
+  </Admin>
+);
+
+export default Dasboard;
+/*
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
@@ -19,3 +40,4 @@ export default function Dashboard({ auth }) {
         </AuthenticatedLayout>
     );
 }
+*/
