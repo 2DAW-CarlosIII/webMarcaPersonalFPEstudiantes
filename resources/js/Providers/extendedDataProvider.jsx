@@ -6,7 +6,7 @@ const addCustomDataProviderMethods = dataProvider => ({
     ...dataProvider,
     getAuthenticated(params) {
         const httpClient = fetchUtils.fetchJson
-        const url = '/isAuthenticated';
+        const url = '/api/user';
         return httpClient(url)
     },
     getUserProfile(params) {

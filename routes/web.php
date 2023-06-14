@@ -52,10 +52,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth:sanctum')->get('/isAuthenticated', function (Request $request) {
-    return $request->user();
-});
-
 Route::controller(LoginWithGoogleController::class)->group(function(){
     Route::get('authorized/google', 'redirectToGoogle')->name('auth.google');
     Route::get('authorized/google/callback', 'handleGoogleCallback');

@@ -17,7 +17,11 @@ use Tqdev\PhpCrudApi\Config\Config;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    $authenticatedUser = $request->user();
+    $user['id'] = $authenticatedUser->id;
+    $user['fullName'] = $authenticatedUser->first_name;
+    $user['avatar'] = $authenticatedUser->avatar;
+    return $user;
 });
 
 Route::any('/{any}', function (ServerRequestInterface $request) {
