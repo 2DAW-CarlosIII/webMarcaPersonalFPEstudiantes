@@ -24,6 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $user;
  });
 Route::apiResource('users', UserController::class);
+route::post('proyectos/{id}/attach', [ProyectoController::class, 'attachEstudiantes']);
+route::post('proyectos/{id}/detach', [ProyectoController::class, 'detachEstudiantes']);
 Route::apiResource('proyectos', ProyectoController::class);
 
 // emite un nuevo token
