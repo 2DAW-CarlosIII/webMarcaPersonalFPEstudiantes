@@ -52,4 +52,25 @@ class ProyectoController extends Controller
     {
         //
     }
+
+    public function attachEstudiantes(Request $request, $id)
+    {
+        $payload = json_decode($request->getContent(), true);
+        $alumno = $payload['alumno'];
+        //$idproyecto = $payload['proyecto'];
+        $proyecto=Proyecto::findOrFail($id);
+
+        $proyecto->users()->attach($alumno);
+
+    }
+    public function detachEstudiantes(Request $request, $id)
+    {
+        $payload = json_decode($request->getContent(), true);
+        $alumno = $payload['alumno'];
+        //$idproyecto = $payload['proyecto'];
+        $proyecto=Proyecto::findOrFail($id);
+
+        $proyecto->users()->detach($alumno);
+
+    }
 }
