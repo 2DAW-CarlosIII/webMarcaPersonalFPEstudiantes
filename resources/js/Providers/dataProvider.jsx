@@ -5,8 +5,8 @@ const httpClient = (url, options = {}) => {
     if (!options.headers) {
         options.headers = new Headers({ Accept: 'application/json' });
     }
-    // add your own headers here
-//    options.headers.set('Access-Control-Expose-Headers', 'X-Total-Count');
+    //add your own headers here
+    options.headers.set('Access-Control-Expose-Headers', 'X-Total-Count');
     return fetchUtils.fetchJson(url, options);
 };
 

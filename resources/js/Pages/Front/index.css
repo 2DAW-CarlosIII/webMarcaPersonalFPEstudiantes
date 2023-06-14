@@ -1,0 +1,368 @@
+/*GENERALES*/
+:root {
+    --transition: all 0.5s ease;
+
+    --primary: rgba(158, 31, 31);
+    --primary-light: rgb(202, 145, 145);
+    --primary-dark: rgba(197, 51, 51, 0.2);
+    --secondary: rgb(20, 83, 119);
+
+    --black: rgb(36,36,36);
+    --grey900: rgba(36, 36, 36, 0.938);
+    --grey700: rgba(36, 36, 36, 0.897);
+    --grey600: rgba(36, 36, 36, 0.808);
+    --grey500: rgba(36, 36, 36, 0.616);
+    --grey100: rgba(36, 36, 36, 0.301);
+    --grey: rgba(255, 255, 255, 0.856);
+    --white: white;
+
+    --body-bg: white;
+}
+
+body {
+    background: var(--body-bg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+.section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+
+/*CABECERA*/
+#cabecera {
+    background: linear-gradient(var(--grey900), var(--grey600)), url(../assets/images/pasillo.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+}
+
+#cabecera::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    background: var(--body-bg);
+    bottom: 0;
+    -webkit-mask-image: url(../assets/images/pattern/triangle.svg);
+    mask-image: url(../assets/images/pattern/triangle.svg);
+    transform: rotate(.5turn);
+}
+
+/*SOBRE MARCA PERSONAL*/
+.cajaIcono {
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: var(--white);
+    flex: none;
+}
+
+.utilidades {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.utilidades::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background: var(--primary-dark);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: var(--transition);
+}
+
+.utilidades:hover::after {
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    z-index: -1;
+}
+
+.utilidades:hover h5,
+.utilidades:hover p{
+    color: var(--white);
+}
+
+.utilidades:hover .cajaIcono {
+    background-color: var(--primary-light);
+    color: var(--white);
+}
+
+/*CONTADOR - EN NÚMEROS*/
+#contador {
+    background: linear-gradient(var(--grey900), var(--grey600)), url(../../../../public/images/jugadores.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*CONTACTO*/
+#contacto {
+    position: relative;
+    z-index: 2;
+}
+
+#contacto::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: var(--body-bg);
+
+    top: 0;
+    -webkit-mask-image: url(../assets/images/pattern/triangle.svg);
+    mask-image: url(../assets/images/pattern/triangle.svg);
+}
+
+#contacto::after {
+    content: "";
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(var(--grey900), var(--grey600)), url(../assets/images/ventanas-pasillo.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#contacto .form-control,
+#contacto .form-select {
+    border-radius: 1;
+}
+
+
+/*FOOTER*/
+footer {
+    background: linear-gradient(var(--grey900), var(--grey600)), url(../assets/images/ventana-exterior.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer p {
+    color: var(--grey);
+}
+
+#footer-icon {
+    max-width: 100px;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--grey);
+}
+
+/*PROYECTOS Y DESTACADOS*/
+#nav-proyectos .nav {
+    --bs-nav-link-color: var(--primary);
+    --bs-nav-link-hover-color: var(--primary-light);
+}
+
+.nav-pills {
+    --bs-nav-pills-link-active-bg: var(--primary);
+}
+
+
+.container-imagen {
+    position: relative;
+    width: 100%;
+    height: 277px;
+    overflow: hidden;
+
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+
+.container-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter: blur(1px);
+}
+
+.container-imagen:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--grey500);
+}
+
+.overlay-light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--grey);
+}
+
+.container-texto {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+
+/*ZOOM IMAGEN*/
+.image-zoom {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-zoom-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.image-zoom-wrapper img {
+    transition: var(--transition);
+}
+
+.image-zoom:hover .image-zoom-wrapper img {
+    transform: scale(1.1);
+}
+
+/*BOTONES*/
+.button-82-pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-82-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.button-82-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(340deg 100% 16%) 0%,
+    hsl(340deg 100% 32%) 8%,
+    hsl(340deg 100% 32%) 92%,
+    hsl(340deg 100% 16%) 100%
+  );
+}
+
+.button-82-front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+@media (min-width: 768px) {
+  .button-82-front {
+    font-size: 1.1rem;
+    padding: 12px 42px;
+  }
+}
+
+.button-82-pushable:hover {
+  filter: brightness(110%);
+  -webkit-filter: brightness(110%);
+}
+
+.button-82-pushable:hover .button-82-front {
+  transform: translateY(-6px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.button-82-pushable:hover .button-82-shadow {
+  transform: translateY(4px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.button-82-pushable:active .button-82-shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.button-82-pushable:focus:not(:focus-visible) {
+  outline: none;
+}
