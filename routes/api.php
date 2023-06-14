@@ -16,12 +16,13 @@ use App\Http\Controllers\API\TokenController;
 |
 */
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    $user = $request->user();
-    $user->fullName = $user->first_name;
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    $authenticatedUser = $request->user();
+    $user['id'] = $authenticatedUser->id;
+    $user['fullName'] = $authenticatedUser->first_name;
+    $user['avatar'] = $authenticatedUser->avatar;
     return $user;
-});
-
+ });
 Route::apiResource('users', UserController::class);
 Route::apiResource('proyectos', ProyectoController::class);
 
