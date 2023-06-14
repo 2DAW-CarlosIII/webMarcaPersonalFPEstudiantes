@@ -11,6 +11,6 @@ const httpClient = (url, options = {}) => {
 };
 
 export const dataProvider = jsonServerProvider(
-    import.meta.env.APP_URL + '/api',
+    '/api',
     httpClient
 );
