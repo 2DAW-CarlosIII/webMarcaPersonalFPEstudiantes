@@ -26,7 +26,7 @@ export const ProyectoList = () => {
     <List filters={proyectoFilters} >
       {isSmall ? (
         <SimpleList
-          primaryText="%{nombre}"
+          primaryText="%{nombre"
           secondaryText={(record) => record.metadatos}
           tertiaryText="%{url_github}"
           linkType={(record) => (record.canEdit ? 'edit' : 'show')}
