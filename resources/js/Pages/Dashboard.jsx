@@ -2,10 +2,11 @@ import { Admin, Resource, ListGuesser } from "react-admin";
 import { dataProvider } from '@/Providers/dataProvider'
 import { authProvider } from '@/Providers/authProvider'
 import { ProyectoList, ProyectoCreate, ProyectoEdit } from '../RAResources/proyectos';
+import { UserList, UserEdit } from '../RAResources/users';
 import loginPage from '@/Pages/Auth/Login';
 import jsonServerProvider from 'ra-data-json-server';
 
-//const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+//const dataProvider = jsonServerProvider('http://localhost/api/records');
 
 const Dasboard = () => (
   <Admin
@@ -14,8 +15,9 @@ const Dasboard = () => (
     loginPage={loginPage}
     basename="/dashboard"
   >
-    <Resource name="users" list={ListGuesser} />
     <Resource name="proyectos" list={ProyectoList} edit={ProyectoEdit} create={ProyectoCreate} />
+    <Resource name="users" list={UserList} edit={UserEdit} />
+
   </Admin>
 );
 
