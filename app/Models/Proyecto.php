@@ -13,7 +13,10 @@ class Proyecto extends Model
         'nombre',
         'docente_id',
         'url_github',
-        'metadatos'
+        'metadatos',
+        'familia',
+        'ciclo',
+        'descripcion'
     ];
 
     public function users()

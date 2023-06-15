@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('video_cv')->nullable();
+            $table->string('texto_cv')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

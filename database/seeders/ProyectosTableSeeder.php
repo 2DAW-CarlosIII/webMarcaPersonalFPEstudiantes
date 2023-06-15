@@ -27,31 +27,47 @@ class ProyectosTableSeeder extends Seeder
             'docente_id' => '2',
             'nombre' => 'Web Marca Personal C3',
             'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
+            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi',
+            'descripcion' => 'Definitivamente un proyecto',
+            'familia' => 'Informatica',
+            'ciclo' => 'DAW'
         ),
         array(
             'docente_id' => '3',
             'nombre' => 'Encuentro Empresarial C3',
             'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
+            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi',
+            'descripcion' => 'Definitivamente un proyecto',
+            'familia' => 'Hosteleria y turismo',
+            'ciclo' => 'Direccion de Cocina'
         ),
         array(
             'docente_id' => '4',
             'nombre' => 'C3Runner',
             'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
+            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi',
+            'descripcion' => 'Definitivamente un proyecto',
+            'familia' => 'Sanidad',
+            'ciclo' => 'Audiologia Protesica'
+
         ),
         array(
             'docente_id' => '5',
             'nombre' => 'InmoC3',
             'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
+            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi',
+            'descripcion' => 'Definitivamente un proyecto',
+            'familia' => 'Edificacion',
+            'ciclo' => 'Construccion'
         ),
         array(
             'docente_id' => '6',
             'nombre' => 'Andrómeda',
             'url_github' => 'https://github.com/2DAW-CarlosIII/webMarcaPersonalFPEstudiantes/',
-            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi'
+            'metadatos' => 'El veloz murciélago hindú comía feliz cardillo y kiwi',
+            'descripcion' => 'Definitivamente un proyecto',
+            'familia' => 'Informatica',
+            'ciclo' => 'DAW'
         )
     );
 }
