@@ -21,7 +21,10 @@ class ProyectoResource extends JsonResource
                 'nombre' => $this->nombre,
                 'metadatos' => $this->metadatos,
                 'url_github' => $this->url_github,
-                'estudiantes' => $this->users
+                'estudiantes' => $this->users,
+                'ciclo' => $this->ciclo,
+                'familia' => $this->familia,
+                'descripcion' => $this->descripcion
             ]
         ];
     }
