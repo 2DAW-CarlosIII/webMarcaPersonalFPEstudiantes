@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->truncate();
         DB::table('users')->insert([
                 'first_name'=>env('WEB_ADMIN_USERNAME'),
-                'last_name_name'=>env('WEB_ADMIN_USERNAME'),
+                'last_name'=>env('WEB_ADMIN_USERNAME'),
                 'email'=>env('WEB_ADMIN_EMAIL'),
                 'password'=>bcrypt(env('WEB_ADMIN_PASS'))
             ]);

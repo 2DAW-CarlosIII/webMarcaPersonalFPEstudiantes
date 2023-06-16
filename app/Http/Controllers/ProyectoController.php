@@ -52,8 +52,7 @@ class ProyectoController extends Controller
         $proyectoEdit->url_github = $request->input('url_github');
         $proyectoEdit->save();
 
-        $url = action([ProyectoController::class, 'getShow'], array('id' => $proyectoEdit->id));
-        return redirect($url);
+        return json_encode(['data' => $proyectoEdit]);
     }
 }
 

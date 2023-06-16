@@ -11,6 +11,6 @@ const httpClient = (url, options = {}) => {
 };
 
 export const dataProvider = jsonServerProvider(
-    '/api/records',
+    '/api',
     httpClient
 );

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProyectoController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\TokenController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Psr\Http\Message\ServerRequestInterface;
 use Tqdev\PhpCrudApi\Api;
 use Tqdev\PhpCrudApi\Config\Config;
@@ -26,6 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     $user['avatar'] = $authenticatedUser->avatar;
     return $user;
  });
+ Route::middleware('auth:sanctum')->get('/logout', [AuthenticatedSessionController::class, 'destroy']);
 Route::apiResource('users', UserController::class);
 route::post('proyectos/{id}/attach', [ProyectoController::class, 'attachEstudiantes']);
 route::delete('proyectos/{id}/detach', [ProyectoController::class, 'detachEstudiantes']);
