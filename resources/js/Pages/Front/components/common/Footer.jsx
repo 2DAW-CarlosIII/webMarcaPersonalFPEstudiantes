@@ -17,10 +17,10 @@ function FooterComponent() {
                             <a href="/"><img src={logo} alt="" className='mb-3' id="footer-icon"/></a>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi earum atque consequuntur suscipit.</p>
                             <div className="social-links d-flex gap-2">
-                                <a href=""><FacebookIcon></FacebookIcon></a>
-                                <a href=""><InstagramIcon></InstagramIcon></a>
-                                <a href=""><LinkedInIcon></LinkedInIcon></a>
-                                <a href=""><YouTubeIcon></YouTubeIcon></a>
+                                <a href="" className="enlaces"><FacebookIcon></FacebookIcon></a>
+                                <a href="" className="enlaces"><InstagramIcon></InstagramIcon></a>
+                                <a href="" className="enlaces"><LinkedInIcon></LinkedInIcon></a>
+                                <a href="" className="enlaces"><YouTubeIcon></YouTubeIcon></a>
                             </div>
                         </div>
                         <div className="col-12 col-lg-3 ms-auto">
@@ -44,7 +44,7 @@ function FooterComponent() {
                             <p className="mb-0">Copyrights all rights reserved</p>
                         </div>
                         <div className="col-auto">
-                            <p className="mb-0">Designed by <a href='/'>CIFP Carlos III</a></p>
+                            <p className="mb-0">Designed by <a href='/' className="enlaces">CIFP Carlos III</a></p>
                         </div>
                     </div>
                 </div>

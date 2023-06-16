@@ -60,8 +60,8 @@ function FormularioRegistro() {
                                 <option value="3">Administración y finanzas</option>
                             </select>
                         </div>
-                        <div className="form-group col-12 col-md-4 offset-md-4 d-grid">
-                            <a href="#" className="d-flex justify-content-center">
+                        <div className="col-12 col-md-4 offset-md-4 d-grid">
+                            <a href="/register" className="d-flex justify-content-center enlaces">
                                 <button className="button-82-pushable mt-5 d-flex justify-content-center gap-1" role="button">
                                     <span className="button-82-shadow"></span>
                                     <span className="button-82-edge"></span>

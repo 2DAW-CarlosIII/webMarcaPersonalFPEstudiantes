@@ -28,7 +28,7 @@ img {
     height: auto;
 }
 
-a {
+a, .enlaces {
     text-decoration: none;
     color: var(--primary);
     transition: var(--transition);
@@ -38,6 +38,7 @@ a:hover {
     color: var(--secondary);
 }
 
+
 .section-padding {
     padding-top: 140px;
     padding-bottom: 140px;
@@ -46,7 +47,7 @@ a:hover {
 
 /*CABECERA*/
 #cabecera {
-    background: linear-gradient(var(--grey900), var(--grey600)), url(../assets/images/pasillo.jpg);
+    background: linear-gradient(var(--grey900), var(--grey600)), url(images/pasillo.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -62,8 +63,8 @@ a:hover {
     height: 80px;
     background: var(--body-bg);
     bottom: 0;
-    -webkit-mask-image: url(../assets/images/pattern/triangle.svg);
-    mask-image: url(../assets/images/pattern/triangle.svg);
+    -webkit-mask-image: url(images/pattern/triangle.svg);
+    mask-image: url(images/pattern/triangle.svg);
     transform: rotate(.5turn);
 }
 
@@ -136,15 +137,15 @@ a:hover {
     background: var(--body-bg);
 
     top: 0;
-    -webkit-mask-image: url(../assets/images/pattern/triangle.svg);
-    mask-image: url(../assets/images/pattern/triangle.svg);
+    -webkit-mask-image: url(images/pattern/triangle.svg);
+    mask-image: url(images/pattern/triangle.svg);
 }
 
 #contacto::after {
     content: "";
     width: 100%;
     height: 70%;
-    background: linear-gradient(var(--grey900), var(--grey600)), url(../assets/images/ventanas-pasillo.jpg);
+    background: linear-gradient(var(--grey900), var(--grey600)), url(images/ventanas-pasillo.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -163,7 +164,7 @@ a:hover {
 
 /*FOOTER*/
 footer {
-    background: linear-gradient(var(--grey900), var(--grey600)), url(../assets/images/ventana-exterior.jpg);
+    background: linear-gradient(var(--grey900), var(--grey600)), url(images/ventana-exterior.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -189,7 +190,7 @@ footer p {
 }
 
 .nav-pills {
-    --bs-nav-pills-link-active-bg: var(--primary);
+    --bs-nav-pills-link-active-bg: var(--primary) !important;
 }
 
 
