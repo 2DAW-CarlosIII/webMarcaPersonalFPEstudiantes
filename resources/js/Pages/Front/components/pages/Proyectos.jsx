@@ -3,12 +3,12 @@ import NavbarComponent from "../common/Navbar"
 
 import SearchIcon from '@mui/icons-material/Search';
 
-import escaleras from "../../../assets/images/escaleras.jpg";
-import aless from "../../../assets/images/jugadores.jpg";
-import joche from "../../../assets/images/pasillo-gente.jpg";
-import pasillo from "../../../assets/images/pasillo.jpg";
-import pared from "../../../assets/images/ventana-exterior.jpg";
-import ventana from "../../../assets/images/ventanas-pasillo.jpg";
+import escaleras from "@/Pages/assets/images/escaleras.jpg";
+import aless from "@/Pages/assets/images/jugadores.jpg";
+import joche from "@/Pages/assets/images/pasillo-gente.jpg";
+import pasillo from "@/Pages/assets/images/pasillo.jpg";
+import pared from "@/Pages/assets/images/ventana-exterior.jpg";
+import ventana from "@/Pages/assets/images/ventanas-pasillo.jpg";
 import NavTabComponent from "../common/NavTab";
 
 function ProyectosView() {

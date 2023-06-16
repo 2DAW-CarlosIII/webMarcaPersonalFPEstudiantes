@@ -6,7 +6,7 @@ export const authProvider = {
         return Promise.resolve();
     },
     logout: () => {
-        localStorage.removeItem('user');
+        dataProvider.logout()
         return Promise.resolve();
     },
     checkError: (error) => {

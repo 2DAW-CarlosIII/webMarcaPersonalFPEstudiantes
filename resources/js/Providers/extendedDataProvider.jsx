@@ -4,7 +4,7 @@ import { fetchUtils } from 'ra-core';
 // A function decorating a dataProvider for handling user profiles
 const addCustomDataProviderMethods = dataProvider => ({
     ...dataProvider,
-    getAuthenticated(params) {
+    getAuthenticated() {
         const httpClient = fetchUtils.fetchJson
         const url = '/api/user';
         return httpClient(url)
@@ -27,6 +27,11 @@ const addCustomDataProviderMethods = dataProvider => ({
             avatar: ""
           },
       });
+    },
+    logout() {
+        const httpClient = fetchUtils.fetchJson
+        const url = '/api/logout';
+        return httpClient(url)
     },
 
     updateUserProfile(params) {

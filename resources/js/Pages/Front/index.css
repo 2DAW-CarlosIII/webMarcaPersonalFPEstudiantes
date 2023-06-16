@@ -115,7 +115,7 @@ a:hover {
 
 /*CONTADOR - EN NÚMEROS*/
 #contador {
-    background: linear-gradient(var(--grey900), var(--grey600)), url(../../../../public/images/jugadores.jpg);
+    background: linear-gradient(var(--grey900), var(--grey600)), url(images/jugadores.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

@@ -6,11 +6,11 @@ const httpClient = (url, options = {}) => {
         options.headers = new Headers({ Accept: 'application/json' });
     }
     //add your own headers here
-    options.headers.set('Access-Control-Expose-Headers', 'X-Total-Count');
+//    options.headers.set('Access-Control-Expose-Headers', 'X-Total-Count');
     return fetchUtils.fetchJson(url, options);
 };
 
 export const dataProvider = jsonServerProvider(
-    '/api/records',
+    '/api',
     httpClient
 );
