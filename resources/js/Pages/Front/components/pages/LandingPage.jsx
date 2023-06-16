@@ -1,6 +1,6 @@
-import jugadores from "../../../../../../public/images/jugadores.jpg";
+import jugadores from "../../../assets/images/jugadores.jpg";
 import pasillo from "../../../assets/images/pasillo-gente.jpg";
-import escaleras from "../../../../../../public/images/escaleras.jpg";
+import escaleras from "../../../assets/images/escaleras.jpg";
 import FormularioRegistro from "../common/Formulario";
 
 import PersonIcon from '@mui/icons-material/Person';
@@ -17,7 +17,7 @@ function LandingPage() {
                         <div className="col-12">
                             <h1 className="fw-semibold text-uppercase display-1 text-white">marca personal</h1>
                             <h5 className="text-white mt-3 mb-4">Un lugar donde podrás compartir, visualizar y editar los proyectos realizados durante el curso académico.</h5>
-                            <a href="#contacto">
+                            <a href="#contacto" className="enlaces">
                                 <button className="button-82-pushable" role="button">
                                     <span className="button-82-shadow"></span>
                                     <span className="button-82-edge"></span>
@@ -110,25 +110,25 @@ function LandingPage() {
                     <div className="row g-4 mb-4">
                         <div className="col-12 col-md-6">
                             <div className="container-imagen">
-                                <img src={escaleras} alt="" />
+                                <img src={pasillo} alt="" />
                                 <div className="overlay-light"></div>
                                 <div className="container-texto p-4">
                                     <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="">Nombre del proyecto</a></h5>
+                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="">Leer más...</a>
+                                    <a href="" className="enlaces">Leer más...</a>
                                 </div>
                             </div>
                         </div>
                         <div className="col-12 col-md-6">
                             <div className="container-imagen">
-                                <img src={escaleras} alt="" />
+                                <img src={pasillo} alt="" />
                                 <div className="overlay-light"></div>
                                 <div className="container-texto p-4">
                                     <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="">Nombre del proyecto</a></h5>
+                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="">Leer más...</a>
+                                    <a href="" className="enlaces">Leer más...</a>
                                 </div>
                             </div>
                         </div>
@@ -138,21 +138,9 @@ function LandingPage() {
                                 <div className="overlay-light"></div>
                                 <div className="container-texto p-4">
                                     <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="">Nombre del proyecto</a></h5>
+                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="">Leer más...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-4">
-                            <div className="container-imagen">
-                                <img src={jugadores} alt="" />
-                                <div className="overlay-light"></div>
-                                <div className="container-texto p-4">
-                                    <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="">Nombre del proyecto</a></h5>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="">Leer más...</a>
+                                    <a href="" className="enlaces">Leer más...</a>
                                 </div>
                             </div>
                         </div>
@@ -162,9 +150,21 @@ function LandingPage() {
                                 <div className="overlay-light"></div>
                                 <div className="container-texto p-4">
                                     <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="">Nombre del proyecto</a></h5>
+                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="">Leer más...</a>
+                                    <a href="" className="enlaces">Leer más...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-12 col-md-4">
+                            <div className="container-imagen">
+                                <img src={pasillo} alt="" />
+                                <div className="overlay-light"></div>
+                                <div className="container-texto p-4">
+                                    <p>25 de abril, 2023</p>
+                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
+                                    <a href="" className="enlaces">Leer más...</a>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +172,7 @@ function LandingPage() {
 
                     <div className="row">
                         <div className="col-12 d-flex justify-content-center">
-                            <a href="/proyectos">
+                            <a href="/proyectos" className="enlaces">
                                 <button className="button-82-pushable mt-4 d-flex justify-content-center gap-1" role="button">
                                     <span className="button-82-shadow"></span>
                                     <span className="button-82-edge"></span>

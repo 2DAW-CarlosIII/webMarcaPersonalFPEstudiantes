@@ -38,15 +38,8 @@ function NavbarComponent() {
             <Nav.Link href="#footer">Contacto</Nav.Link>
           </Nav>
           <Form className="d-flex me-1 gap-2">
-            <Form.Control
-              type="search"
-              placeholder="Quiero ver..."
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-light">Buscar</Button>
             <Button variant="light" className='d-flex gap-1'>
-              <PersonIcon></PersonIcon>
+              <a href="/dashboard" className="enlaces"><PersonIcon></PersonIcon></a>
             </Button>
           </Form>
         </Navbar.Collapse>

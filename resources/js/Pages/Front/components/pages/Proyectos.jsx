@@ -1,15 +1,15 @@
 import FooterComponent from "../common/Footer"
 import NavbarComponent from "../common/Navbar"
 
-import SearchIcon from '@mui/icons-material/Search';
-
 import escaleras from "@/Pages/assets/images/escaleras.jpg";
 import aless from "@/Pages/assets/images/jugadores.jpg";
 import joche from "@/Pages/assets/images/pasillo-gente.jpg";
 import pasillo from "@/Pages/assets/images/pasillo.jpg";
 import pared from "@/Pages/assets/images/ventana-exterior.jpg";
 import ventana from "@/Pages/assets/images/ventanas-pasillo.jpg";
+
 import NavTabComponent from "../common/NavTab";
+import Pagination from 'react-bootstrap/Pagination';
 
 function ProyectosView() {
 
@@ -29,10 +29,6 @@ function ProyectosView() {
 
                     <div className="row mb-4" id="nav-proyectos">
                         <NavTabComponent></NavTabComponent>
-                    </div>
-
-                    <div className="row mb-4">
-                        FILTER
                     </div>
 
                     <div className="row g-3 mb-5 text-white">
@@ -138,7 +134,23 @@ function ProyectosView() {
                         </div>
                     </div>
                     <div className="row">
-                        <p>Paginacion</p>
+                        <Pagination>
+                            <Pagination.First />
+                            <Pagination.Prev />
+                            <Pagination.Item>{1}</Pagination.Item>
+                            <Pagination.Ellipsis />
+
+                            <Pagination.Item>{10}</Pagination.Item>
+                            <Pagination.Item>{11}</Pagination.Item>
+                            <Pagination.Item active>{12}</Pagination.Item>
+                            <Pagination.Item>{13}</Pagination.Item>
+                            <Pagination.Item disabled>{14}</Pagination.Item>
+
+                            <Pagination.Ellipsis />
+                            <Pagination.Item>{20}</Pagination.Item>
+                            <Pagination.Next />
+                            <Pagination.Last />
+                        </Pagination>
                     </div>
                 </div>
             </section>
