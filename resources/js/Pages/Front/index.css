@@ -244,6 +244,15 @@ footer p {
     width: 100%;
 }
 
+.paginacion {
+    --bs-pagination-color: var(--grey700) !important;
+    --bs-pagination-boder-color: var(--grey100) !important;
+    --bs-pagination-hover-color: var(--primary-light) !important;
+    --bs-pagination-focus-color: var(--primary) !important;
+    --bs-pagination-active-bg: var(--primary) !important;
+    --bs-pagination-active-border-color: var(--primary) !important;
+}
+
 
 /*ZOOM IMAGEN*/
 .image-zoom {
