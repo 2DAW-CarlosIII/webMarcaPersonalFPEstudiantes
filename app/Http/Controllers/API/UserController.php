@@ -71,4 +71,9 @@ class UserController extends Controller
     {
         $user->delete();
     }
+
+    public function getTeachers()
+    {
+        return response(User::where('isTeacher', '=', 1)->get())->header('X-Total-Count', User::count());
+    }
 }

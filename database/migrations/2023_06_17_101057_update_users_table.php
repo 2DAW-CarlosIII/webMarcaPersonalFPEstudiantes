@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('proyectos', function (Blueprint $table) {
-            $table->string("img_src")->nullable()->default('images/jugadores.jpg');
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('isTeacher')->default(false);
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('proyectos', function (Blueprint $table) {
-            $table->string("img_src");
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('isTeacher');
         });
     }
 };

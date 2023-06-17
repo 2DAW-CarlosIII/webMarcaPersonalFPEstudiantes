@@ -62,7 +62,7 @@ export const ProyectoEdit = () => (
     <Edit title={<ProyectoTitle />}>
         <SimpleForm>
             <TextInput source="id" disabled />
-            <ReferenceInput source="docente_id" reference="users">
+            <ReferenceInput source="docente_id" reference="teachers" >
                 <SelectInput optionText="first_name" />
             </ReferenceInput>
             <TextInput source="nombre" />
@@ -84,7 +84,9 @@ export const ProyectoEdit = () => (
 export const ProyectoCreate = () => (
     <Create>
         <SimpleForm>
-            <ReferenceInput source="docente_id" reference="users" />
+            <ReferenceInput source="docente_id" reference="teachers" >
+                <SelectInput optionText="first_name" />
+            </ReferenceInput>
             <TextInput source="nombre" />
             <TextInput source="metadatos" />
             <SelectInput source="familia" choices={[
