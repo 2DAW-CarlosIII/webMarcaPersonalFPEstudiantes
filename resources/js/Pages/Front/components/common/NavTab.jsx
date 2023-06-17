@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Collapse } from 'bootstrap';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
-function NavTabComponent() {
+function NavTabComponent(props) {
 
   var [toggle, setToggle] = useState(false);
 
@@ -49,7 +49,7 @@ function NavTabComponent() {
             <div className="d-inline-block gap-2">
               <div className="input-group mb-3">
                 <span className="input-group-text">Buscar por nombre...</span>
-                <input type="text" id="busqueda-proyectos" className="form-control" aria-label="Buscar por título, autor, tutor o centro" />
+                <input type="text" id="busqueda-proyectos" className="form-control" aria-label="Buscar por título, autor, tutor o centro" value={props.busqueda} onChange={props.manejarBusqueda} />
               </div>
               <select className="form-select" aria-label="Ordenar alfabéticamente de la A a la Z">
                 <option defaultValue>Ordenar por...</option>

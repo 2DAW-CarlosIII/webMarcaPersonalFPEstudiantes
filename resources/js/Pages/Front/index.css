@@ -211,6 +211,7 @@ footer p {
     object-fit: cover;
 
     filter: blur(1px);
+    opacity:0.75;
 }
 
 .container-imagen:hover {
