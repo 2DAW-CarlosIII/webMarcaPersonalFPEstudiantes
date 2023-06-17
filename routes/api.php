@@ -27,7 +27,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     $user['avatar'] = $authenticatedUser->avatar;
     return $user;
  });
- Route::middleware('auth:sanctum')->get('/logout', [AuthenticatedSessionController::class, 'destroy']);
+Route::middleware('auth:sanctum')->get('/logout', [AuthenticatedSessionController::class, 'destroy']);
+route::get('teachers', [UserController::class, 'getTeachers']);
 Route::apiResource('users', UserController::class);
 route::post('proyectos/{id}/attach', [ProyectoController::class, 'attachEstudiantes']);
 route::delete('proyectos/{id}/detach', [ProyectoController::class, 'detachEstudiantes']);
