@@ -7,8 +7,48 @@ import PersonIcon from '@mui/icons-material/Person';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AddIcon from '@mui/icons-material/Add';
+import { useState, useEffect } from "react"
+import { getProyectos } from "../../../assets/servicios/getProyectos"
+
 
 function LandingPage() {
+
+    const [proyectos, setProyectos] = useState([]);
+
+    async function recuperarProyectos() {
+        let proyectosRecuperados = await getProyectos();
+        setProyectos(proyectosRecuperados);
+        console.log(proyectosRecuperados)
+        console.log("Datos recuperados");
+
+    }
+
+    useEffect(() => {
+        recuperarProyectos();
+    }, []);
+
+
+    let proyectosLanding = [];
+    proyectosLanding = proyectos.slice(0,6);
+
+    function mostrarProyectos(proyecto) {
+
+        return (
+            <div className="col-12 col-md-4">
+                <div className="container-imagen">
+                    <img src={proyecto.img_src} alt="" />
+                    <div className="overlay-light"></div>
+                    <div className="container-texto p-4">
+                        <p>{proyecto.familia}</p>
+                        <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">{proyecto.nombre}</a></h5>
+                        <p>{proyecto.descripcion}</p>
+                        <a href="" className="enlaces">Leer más...</a>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <>
             <section id="cabecera" className="mb-5 min-vh-100 d-flex align-items-center text-center">
@@ -30,7 +70,6 @@ function LandingPage() {
                     </div>
                 </div>
             </section>
-
             <section id="utilidades" className="my-5 section-padding">
                 <div className="container">
                     <div className="row mb-4">
@@ -106,70 +145,9 @@ function LandingPage() {
                             </div>
                         </div>
                     </div>
-
                     <div className="row g-4 mb-4">
-                        <div className="col-12 col-md-6">
-                            <div className="container-imagen">
-                                <img src={pasillo} alt="" />
-                                <div className="overlay-light"></div>
-                                <div className="container-texto p-4">
-                                    <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="" className="enlaces">Leer más...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <div className="container-imagen">
-                                <img src={pasillo} alt="" />
-                                <div className="overlay-light"></div>
-                                <div className="container-texto p-4">
-                                    <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="" className="enlaces">Leer más...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-4">
-                            <div className="container-imagen">
-                                <img src={pasillo} alt="" />
-                                <div className="overlay-light"></div>
-                                <div className="container-texto p-4">
-                                    <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="" className="enlaces">Leer más...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-4">
-                            <div className="container-imagen">
-                                <img src={pasillo} alt="" />
-                                <div className="overlay-light"></div>
-                                <div className="container-texto p-4">
-                                    <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="" className="enlaces">Leer más...</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 col-md-4">
-                            <div className="container-imagen">
-                                <img src={pasillo} alt="" />
-                                <div className="overlay-light"></div>
-                                <div className="container-texto p-4">
-                                    <p>25 de abril, 2023</p>
-                                    <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">Nombre del proyecto</a></h5>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit?</p>
-                                    <a href="" className="enlaces">Leer más...</a>
-                                </div>
-                            </div>
-                        </div>
+                       {proyectosLanding.map(mostrarProyectos)}
                     </div>
-
                     <div className="row">
                         <div className="col-12 d-flex justify-content-center">
                             <a href="/proyectos" className="enlaces">
