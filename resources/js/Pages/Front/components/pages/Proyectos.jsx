@@ -24,6 +24,22 @@ function ProyectosView() {
 
     const [busqueda, setBusqueda] = useState("");
 
+    const [valorSelect, setValorSelect] = useState({
+        familia: "todas",
+        alfabeticamente: "az"
+      });
+
+      function manejarSelect(event) {
+        setValorSelect({ ...valorSelect, [event.target.name]: event.target.value });
+        setPagina(1);
+        console.log(valorSelect);
+      }
+
+      function manejarSelectFamilia(event) {
+        setValorSelect({...valorSelect, familia : event.target.getAttribute("value")})
+        console.log(valorSelect);
+      }
+
     function filtrarDatos(proyecto) {
         if (busqueda === "") return true;
 
@@ -37,11 +53,19 @@ function ProyectosView() {
         );
       }
 
+      function filtrarFamilia(proyecto) {
+        if (valorSelect.familia === "todas") return true;
+
+        return proyecto.familia === valorSelect.familia;
+      }
+
     //PAGINACIÓN
     const startIndex = (pagina - 1) * proyectosPorPagina;
     const endIndex = startIndex + proyectosPorPagina;
     const proyectosFiltrados = proyectos
         .filter(filtrarDatos)
+        .filter(filtrarFamilia)
+        .sort(ordenarAlfabeticamente)
     const elementosPaginados = proyectosFiltrados.slice(startIndex, endIndex);
 
     let paginasTotales = Math.ceil(
@@ -155,13 +179,37 @@ function ProyectosView() {
 
       //FIN DE LAS FUNCIONES DE LA PAGINACIÓN
 
+      //Funcion que maneja la búsqueda
       function manejarBusqueda(event) {
         setBusqueda(event.target.value);
         setPagina(1);
         console.log(busqueda);
       }
 
+      //Función para ordenar alfabéticamente
+      function ordenarAlfabeticamente(a, b) {
+        const nombreA = a.nombre;
+        const nombreB = b.nombre;
 
+        if (valorSelect.alfabeticamente === "az") {
+          if (nombreA < nombreB) {
+            return -1;
+          }
+          if (nombreA > nombreB) {
+            return 1;
+          }
+
+          return 0;
+        } else if (valorSelect.alfabeticamente === "za") {
+          if (nombreB < nombreA) {
+            return -1;
+          }
+          if (nombreB > nombreA) {
+            return 1;
+          }
+          return 0;
+        }
+      }
 
     async function recuperarProyectos() {
         let proyectosRecuperados = await getProyectos();
@@ -184,6 +232,7 @@ function ProyectosView() {
                     <div className="container-texto p-4">
                         <h5 className="fw-bold text-uppercase">{proyecto.nombre}</h5>
                         <p>{proyecto.url_github}</p>
+                        <p><strong>{proyecto.familia}</strong></p>
                     </div>
                 </div>
             </div>
@@ -209,6 +258,8 @@ function ProyectosView() {
                         <NavTabComponent
                         busqueda={busqueda}
                         manejarBusqueda={manejarBusqueda}
+                        manejarSelect={manejarSelect}
+                        manejarSelectFamilia={manejarSelectFamilia}
 
                         ></NavTabComponent>
                     </div>
