@@ -1,10 +1,11 @@
 import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
 
 import { useState, useEffect } from 'react';
 import { Collapse } from 'bootstrap';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
-function NavTabComponent() {
+function NavTabComponent(props) {
 
   var [toggle, setToggle] = useState(false);
 
@@ -16,24 +17,18 @@ function NavTabComponent() {
 
   return (
     <>
-      <Nav variant="pills" defaultActiveKey="/proyectos" className='justify-content-center align-items-center mb-2'>
+      <Nav variant="pills" defaultActiveKey="0" className='justify-content-center align-items-center mb-2'>
         <Nav.Item>
-          <Nav.Link href="/proyectos">Todos</Nav.Link>
+          <Nav.Link value="todas" eventKey="0" onClick={props.manejarSelectFamilia}>Todas</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="1">Informática</Nav.Link>
+          <Nav.Link value="informatica y comunicaciones" eventKey="1" onClick={props.manejarSelectFamilia}>Informática y comunicaciones</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="2">Marketing</Nav.Link>
+          <Nav.Link value="comercio y marketing" eventKey="2" onClick={props.manejarSelectFamilia}>Comercio y marketing</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="3">Administración</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="4">Comercio</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="5">Transporte</Nav.Link>
+          <Nav.Link value="administracion y gestion" eventKey="3" onClick={props.manejarSelectFamilia}>Administración y gestión</Nav.Link>
         </Nav.Item>
       </Nav>
 
@@ -49,12 +44,11 @@ function NavTabComponent() {
             <div className="d-inline-block gap-2">
               <div className="input-group mb-3">
                 <span className="input-group-text">Buscar por nombre...</span>
-                <input type="text" id="busqueda-proyectos" className="form-control" aria-label="Buscar por título, autor, tutor o centro" />
+                <input type="text" id="busqueda-proyectos" className="form-control" aria-label="Buscar por título, autor, tutor o centro" value={props.busqueda} onChange={props.manejarBusqueda} />
               </div>
-              <select className="form-select" aria-label="Ordenar alfabéticamente de la A a la Z">
-                <option defaultValue>Ordenar por...</option>
-                <option value="1">A-Z</option>
-                <option value="2">Z-A</option>
+              <select className="form-select" onChange={props.manejarSelect} aria-label="Ordenar alfabéticamente de la A a la Z" name="alfabeticamente">
+                <option defaultValue value="az">A-Z</option>
+                <option value="za">Z-A</option>
               </select>
             </div>
           </div>
