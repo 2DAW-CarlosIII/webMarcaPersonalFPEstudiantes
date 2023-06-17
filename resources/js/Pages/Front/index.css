@@ -255,6 +255,14 @@ footer p {
 }
 
 
+/*PROYECTO DETALLE*/
+#proyecto-detail {
+    width: 300vw;
+    display: flex;
+    flex-direction: row;
+}
+
+
 /*ZOOM IMAGEN*/
 .image-zoom {
     position: relative;
