@@ -33,5 +33,40 @@ class UsersTableSeeder extends Seeder
                 'email'=>env('WEB_ADMIN_EMAIL'),
                 'password'=>bcrypt(env('WEB_ADMIN_PASS'))
             ]);
+            DB::table('users')->insert([
+                'first_name'=>'Alberto',
+                'last_name'=>'Sierra Olmo',
+                'email'=>'albsierra@murciaeduca.es',
+                'password'=>bcrypt(env('WEB_ADMIN_PASS')),
+                'isTeacher' => true
+            ]);
+            DB::table('users')->insert([
+                'first_name'=>'Víctor M.',
+                'last_name'=>'Garrido Cases',
+                'email'=>'vmanuel.garrido@murciaeduca.es',
+                'password'=>bcrypt(env('WEB_ADMIN_PASS')),
+                'isTeacher' => true
+            ]);
+            DB::table('users')->insert([
+                'first_name'=>'M. Cruz',
+                'last_name'=>'Sanz Zamarrón',
+                'email'=>'mcruz.sanz@murciaeduca.es',
+                'password'=>bcrypt(env('WEB_ADMIN_PASS')),
+                'isTeacher' => true
+            ]);
+            DB::table('users')->insert([
+                'first_name'=>'Vicente J.',
+                'last_name'=>'López Belmonte',
+                'email'=>'doncarnal@murciaeduca.es',
+                'password'=>bcrypt(env('WEB_ADMIN_PASS')),
+                'isTeacher' => true
+            ]);
+            DB::table('users')->insert([
+                'first_name'=>'Francisco',
+                'last_name'=>'Ortiz',
+                'email'=>'fortiz@murciaeduca.es',
+                'password'=>bcrypt(env('WEB_ADMIN_PASS')),
+                'isTeacher' => true
+            ]);
     }
  }

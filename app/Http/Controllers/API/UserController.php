@@ -30,9 +30,9 @@ class UserController extends Controller
     {
         $user = json_decode($request->getContent(), true);
 
-        $user = User::create($user['data']['attributes']);
+        $user = User::create($user);
 
-        return new UserResource($user);
+        return $user;
     }
 
     /**
@@ -43,7 +43,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return new UserResource($user);
+        return $user;
     }
 
     /**
@@ -56,9 +56,9 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $userData = json_decode($request->getContent(), true);
-        $user->update($userData['data']['attributes']);
+        $user->update($userData);
 
-        return new UserResource($user);
+        return $user;
     }
 
     /**
@@ -70,5 +70,10 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+    }
+
+    public function getTeachers()
+    {
+        return response(User::where('isTeacher', '=', 1)->get())->header('X-Total-Count', User::count());
     }
 }

@@ -12,9 +12,15 @@ class ProyectoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return ProyectoResource::collection(Proyecto::all());
+        //$busqueda = $request->input('filter');
+/*         $registrosProyectos = ($busqueda && array_key_exists('q', $busqueda))
+            ? Proyecto::where('nombre', 'like', '%' .$busqueda['q'] . '%')->get()
+            : Proyecto::all(); */
+            //$registrosProyectos = searchByField(array('nombre'), Proyecto::class);
+            //return response($registrosProyectos)->header('X-Total-Count', Proyecto::count());
+        return response(Proyecto::all())->header('X-Total-Count', Proyecto::count());
     }
 
     /**
@@ -34,7 +40,7 @@ class ProyectoController extends Controller
      */
     public function show(Proyecto $proyecto)
     {
-        return new ProyectoResource($proyecto);
+        return response($proyecto);
     }
 
     /**
@@ -42,7 +48,10 @@ class ProyectoController extends Controller
      */
     public function update(Request $request, Proyecto $proyecto)
     {
-        //
+        $proyectoData = json_decode($request->getContent(), true);
+        $proyecto->update($proyectoData);
+
+        return $proyecto;
     }
 
     /**
@@ -50,7 +59,7 @@ class ProyectoController extends Controller
      */
     public function destroy(Proyecto $proyecto)
     {
-        //
+        $proyecto->delete();
     }
 
     public function attachEstudiantes(Request $request, $id)

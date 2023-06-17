@@ -36,6 +36,7 @@ export const UserList = () => {
                 <Datagrid bulkActionButtons={false}>
                     <TextField source="id" />
                     <TextField source="first_name" />
+                    <TextField source="last_name" />
                     <TextField source="email" />
                     <TextField source="proyectos" />
                     <EditButton />
