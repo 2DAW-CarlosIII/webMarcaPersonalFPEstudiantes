@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProyectoController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\ProyectoUserController;
 use App\Http\Controllers\API\TokenController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Psr\Http\Message\ServerRequestInterface;
@@ -30,6 +31,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->get('/logout', [AuthenticatedSessionController::class, 'destroy']);
 route::get('teachers', [UserController::class, 'getTeachers']);
 Route::apiResource('users', UserController::class);
+Route::apiResource('proyectousers', ProyectoUserController::class);
 route::post('proyectos/{id}/attach', [ProyectoController::class, 'attachEstudiantes']);
 route::delete('proyectos/{id}/detach', [ProyectoController::class, 'detachEstudiantes']);
 Route::apiResource('proyectos', ProyectoController::class);
