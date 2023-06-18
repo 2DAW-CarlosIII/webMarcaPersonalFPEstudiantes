@@ -37,7 +37,7 @@ class LoginWithGoogleController extends Controller
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'password' => encrypt('123456dummy'),
-                    'avatar' => $user->user['picture']
+                    'avatar' => $user->avatar
                 ]);
 
                 Auth::login($newUser);
