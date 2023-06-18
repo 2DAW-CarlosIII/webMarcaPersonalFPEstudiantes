@@ -44,7 +44,7 @@ export const ProyectoList = () => {
                     <TextField source="metadatos" />
                     <TextField source="url_github" />
                     <TextField source="familia" />
-                    <TextField source="Descripción" />
+                    <TextField source="descripcion" />
                     <TextField source="ciclo" />
                     <EditButton />
                 </Datagrid>
@@ -68,15 +68,25 @@ export const ProyectoEdit = () => (
             <TextInput source="nombre" />
             <TextInput source="metadatos" />
             <SelectInput source="familia" choices={[
-                { id: 'Informática', name: 'Informática' },
-                { id: 'Comercio', name: 'Comercio' },
-                { id: 'Turismo', name: 'Turismo' },
-                { id: 'Transporte', name: 'Transporte' },
-                { id: 'Sanidad', name: 'Sanidad' }
+                { id: 'informatica y comunicaciones', name: 'Informática' },
+                { id: 'comercio y marketing', name: 'Comercio' },
+                { id: 'administracion y gestion', name: 'Administración' },
             ]} />
             <TextInput source="url_github" />
             <TextInput source="descripcion" />
-            <TextInput source="ciclo" />
+            <SelectInput source="ciclo" choices={[
+                { id: 'Gestión administrativa', name: 'Gestión administrativa' },
+                { id: 'Administración y finanzas', name: 'Administración y finanzas' },
+                { id: 'Asistencia a la dirección', name: 'Asistencia a la dirección' },
+                { id: 'Actividades comerciales', name: 'Actividades comerciales' },
+                { id: 'Comercio internacional', name: 'Comercio internacional' },
+                { id: 'Transporte y logística', name: 'Transporte y logística' },
+                { id: 'Marketing y publicidad', name: 'Marketing y publicidad' },
+                { id: 'Sistemas microinformáticos y redes', name: 'Sistemas microinformáticos y redes' },
+                { id: 'Administración de sistemas informáticos en red', name: 'Administración de sistemas informáticos en red' },
+                { id: 'Desarrollo de aplicaciones web', name: 'Desarrollo de aplicaciones web' },
+                { id: 'Desarrollo de aplicaciones multiplataforma', name: 'Desarrollo de aplicaciones multiplataforma' }
+            ]} />
         </SimpleForm>
     </Edit>
 );
@@ -90,15 +100,25 @@ export const ProyectoCreate = () => (
             <TextInput source="nombre" />
             <TextInput source="metadatos" />
             <SelectInput source="familia" choices={[
-                { id: 'Informática', name: 'Informática' },
-                { id: 'Comercio', name: 'Comercio' },
-                { id: 'Turismo', name: 'Turismo' },
-                { id: 'Transporte', name: 'Transporte' },
-                { id: 'Sanidad', name: 'Sanidad' }
+                { id: 'informatica y comunicaciones', name: 'Informática' },
+                { id: 'comercio y marketing', name: 'Comercio' },
+                { id: 'administracion y gestion', name: 'Administración' },
             ]} />
             <TextInput source="url_github" />
             <TextInput source="descripcion" />
-            <TextInput source="ciclo" />
+            <SelectInput source="ciclo" choices={[
+                { id: 'Gestión administrativa', name: 'Gestión administrativa' },
+                { id: 'Administración y finanzas', name: 'Administración y finanzas' },
+                { id: 'Asistencia a la dirección', name: 'Asistencia a la dirección' },
+                { id: 'Actividades comerciales', name: 'Actividades comerciales' },
+                { id: 'Comercio internacional', name: 'Comercio internacional' },
+                { id: 'Transporte y logística', name: 'Transporte y logística' },
+                { id: 'Marketing y publicidad', name: 'Marketing y publicidad' },
+                { id: 'Sistemas microinformáticos y redes', name: 'Sistemas microinformáticos y redes' },
+                { id: 'Administración de sistemas informáticos en red', name: 'Administración de sistemas informáticos en red' },
+                { id: 'Desarrollo de aplicaciones web', name: 'Desarrollo de aplicaciones web' },
+                { id: 'Desarrollo de aplicaciones multiplataforma', name: 'Desarrollo de aplicaciones multiplataforma' }
+            ]} />
         </SimpleForm>
     </Create>
 );
