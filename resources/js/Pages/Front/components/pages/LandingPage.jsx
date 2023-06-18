@@ -41,7 +41,7 @@ function LandingPage() {
                         <p>{proyecto.familia}</p>
                         <h5 className="fw-bold text-uppercase"><a href="" className="enlaces">{proyecto.nombre}</a></h5>
                         <p>{proyecto.descripcion}</p>
-                        <a href="" className="enlaces">Leer más...</a>
+                        <a href={"/proyecto"}  className="enlaces">Leer más...</a>
                     </div>
                 </div>
             </div>
