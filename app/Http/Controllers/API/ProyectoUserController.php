@@ -13,6 +13,10 @@ class ProyectoUserController extends Controller
         return response(ProyectoUser::all())->header('X-Total-Count', ProyectoUser::count());
     }
 
+    public function show(ProyectoUser $ProyectoUser)
+    {
+        return response($ProyectoUser);
+    }
     public function store(Request $request)
     {
         $ProyectoUser = json_decode($request->getContent(), true);

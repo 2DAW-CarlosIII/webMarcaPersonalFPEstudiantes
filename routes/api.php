@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProyectoController;
+use App\Http\Controllers\API\ProyectoFrontController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\ProyectoUserController;
 use App\Http\Controllers\API\TokenController;
@@ -35,6 +36,7 @@ Route::apiResource('proyectousers', ProyectoUserController::class);
 route::post('proyectos/{id}/attach', [ProyectoController::class, 'attachEstudiantes']);
 route::delete('proyectos/{id}/detach', [ProyectoController::class, 'detachEstudiantes']);
 Route::apiResource('proyectos', ProyectoController::class);
+Route::apiResource('proyectosFront', ProyectoFrontController::class);
 
 // emite un nuevo token
 Route::post('tokens', [TokenController::class, 'store']);
