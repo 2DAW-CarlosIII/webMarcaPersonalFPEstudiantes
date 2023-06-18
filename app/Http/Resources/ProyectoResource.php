@@ -17,15 +17,16 @@ class ProyectoResource extends JsonResource
         return [
             'id' => $this->id,
 //                'attributes' => parent::toArray($request)
-            'attributes' => [
-                'nombre' => $this->nombre,
-                'metadatos' => $this->metadatos,
-                'url_github' => $this->url_github,
-                'estudiantes' => $this->users,
-                'ciclo' => $this->ciclo,
-                'familia' => $this->familia,
-                'descripcion' => $this->descripcion
-            ]
+            'docente_id' => $this->docente_id,
+            'nombre' => $this->nombre,
+            'metadatos' => $this->metadatos,
+            'url_github' => $this->url_github,
+            'ciclo' => $this->ciclo,
+            'familia' => $this->familia,
+            'descripcion' => $this->descripcion,
+            'img_src' => $this->img_src,
+            'estudiantes' => $this->users,
+
         ];
     }
 }
