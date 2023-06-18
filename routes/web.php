@@ -25,11 +25,11 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-Route::get('/proyectos', function () {
-    return Inertia::render('Front/components/pages/Proyectos');
+ Route::get('/proyectos', function () {
+     return Inertia::render('index');
 });
 Route::get('/proyecto', function () {
-    return Inertia::render('Front/components/pages/Proyecto');
+     return Inertia::render('index');
 });
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
