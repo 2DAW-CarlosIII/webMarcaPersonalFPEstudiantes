@@ -10,7 +10,6 @@ function Front() {
                 <Routes>
                     <Route path="/" element={<LandingPage/>}/>
                     <Route path="/proyectos" element={<ProyectosView/>}/>
-                    <Route path="/proyecto" element={<ProyectoDetalle/>}/>
                 </Routes>
             </BrowserRouter>
         </>

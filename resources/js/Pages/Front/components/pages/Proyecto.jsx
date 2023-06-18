@@ -29,7 +29,7 @@ function ProyectoDetalle(props) {
     }
 
     useEffect(() => {
-        recuperarProyectoById('1');
+        recuperarProyectoById(props.id);
     }, []);
 
 
