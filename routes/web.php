@@ -28,8 +28,14 @@ Route::get('/', function () {
  Route::get('/proyectos', function () {
      return Inertia::render('index');
 });
-Route::get('/proyecto', function () {
-     return Inertia::render('index');
+// Route::get('/proyecto', function () {
+//      return Inertia::render('index');
+// });
+
+Route::get('/proyecto/{id}', function ($id) {
+    return Inertia::render('Front/components/pages/Proyecto', [
+        'id' => $id,
+    ]);
 });
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
