@@ -9,7 +9,8 @@ import {
     Create,
     SimpleForm,
     ReferenceInput,
-    TextInput
+    TextInput,
+    SelectInput
 } from 'react-admin';
 
 import { useRecordContext } from 'react-admin';
@@ -58,6 +59,10 @@ export const UserEdit = () => (
             <TextInput source="first_name" />
             <TextInput source="email" />
             <TextInput source="proyectos" />
+            <SelectInput source="isTeacher" choices={[
+                        { id: 1, name: 'Sí' },
+                        { id: 0, name: 'No' }
+                    ]} />
         </SimpleForm>
     </Edit>
 );

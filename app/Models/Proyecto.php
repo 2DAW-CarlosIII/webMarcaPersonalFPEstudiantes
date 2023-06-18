@@ -16,7 +16,7 @@ class Proyecto extends Model
         'metadatos',
         'familia',
         'ciclo',
-        'descripcion'
+        'descripcion',
     ];
 
     public function users()
