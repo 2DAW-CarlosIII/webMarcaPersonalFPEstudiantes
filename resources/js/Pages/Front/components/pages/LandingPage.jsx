@@ -1,6 +1,3 @@
-import jugadores from "../../../assets/images/jugadores.jpg";
-import pasillo from "../../../assets/images/pasillo-gente.jpg";
-import escaleras from "../../../assets/images/escaleras.jpg";
 import FormularioRegistro from "../common/Formulario";
 
 import PersonIcon from '@mui/icons-material/Person';
@@ -9,6 +6,8 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AddIcon from '@mui/icons-material/Add';
 import { useState, useEffect } from "react"
 import { getProyectos } from "../../../assets/servicios/getProyectos"
+import NavbarComponent from "../common/Navbar";
+import FooterComponent from "../common/Footer";
 
 
 function LandingPage() {
@@ -51,6 +50,7 @@ function LandingPage() {
 
     return (
         <>
+        <NavbarComponent></NavbarComponent>
             <section id="cabecera" className="mb-5 min-vh-100 d-flex align-items-center text-center">
                 <div className="container">
                     <div className="row">
@@ -178,6 +178,7 @@ function LandingPage() {
                     <FormularioRegistro></FormularioRegistro>
                 </div>
             </section>
+            <FooterComponent></FooterComponent>
         </>
     )
 }
