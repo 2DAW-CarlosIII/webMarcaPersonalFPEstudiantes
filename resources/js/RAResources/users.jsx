@@ -10,7 +10,8 @@ import {
     SimpleForm,
     ReferenceInput,
     TextInput,
-    SelectInput
+    SelectInput,
+    FunctionField
 } from 'react-admin';
 
 import { useRecordContext } from 'react-admin';
@@ -19,6 +20,10 @@ import { useMediaQuery } from '@mui/material';
 const userFilters = [
     <TextInput source="q" label="Search" alwaysOn />,
 ];
+
+const convertirValor = (record) => {
+    return record.isTeacher === 1 ? 'Profesor' : 'Alumno';
+};
 
 export const UserList = () => {
     const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
@@ -39,7 +44,11 @@ export const UserList = () => {
                     <TextField source="first_name" />
                     <TextField source="last_name" />
                     <TextField source="email" />
-                    <TextField source="proyectos" />
+                    <FunctionField
+                        source="isTeacher"
+                        label="Rol"
+                        render={convertirValor}
+                    />
                     <EditButton />
                 </Datagrid>
             )}
@@ -60,9 +69,9 @@ export const UserEdit = () => (
             <TextInput source="email" />
             <TextInput source="proyectos" />
             <SelectInput source="isTeacher" choices={[
-                        { id: 1, name: 'Sí' },
-                        { id: 0, name: 'No' }
-                    ]} />
+                { id: 1, name: 'Sí' },
+                { id: 0, name: 'No' }
+            ]} />
         </SimpleForm>
     </Edit>
 );
