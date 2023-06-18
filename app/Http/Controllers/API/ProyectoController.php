@@ -40,6 +40,8 @@ class ProyectoController extends Controller
      */
     public function show(Proyecto $proyecto)
     {
+        $proyecto->users;
+        $proyecto->teacher;
         return response($proyecto);
     }
 

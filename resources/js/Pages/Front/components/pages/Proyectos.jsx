@@ -1,5 +1,6 @@
 import FooterComponent from "../common/Footer"
 import NavbarComponent from "../common/Navbar"
+import Button from "react-bootstrap/Button"
 
 import escaleras from "@/Pages/assets/images/escaleras.jpg";
 import aless from "@/Pages/assets/images/jugadores.jpg";
@@ -233,7 +234,7 @@ function ProyectosView() {
                         <h5 className="fw-bold text-uppercase">{proyecto.nombre}</h5>
                         <p>{proyecto.descripcion}</p>
                         <p><strong>{proyecto.familia}</strong></p>
-                        <a href={"/proyecto/"+ proyecto.id}  className="enlaces">Leer más...</a>
+                        <Button variant="light" size="sm"><a className="enlaces" href={"/proyecto/"+ proyecto.id}>Leer más</a></Button>
                     </div>
                 </div>
             </div>
