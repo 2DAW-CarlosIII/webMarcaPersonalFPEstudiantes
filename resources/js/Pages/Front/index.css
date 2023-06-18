@@ -267,7 +267,8 @@ footer p {
 
 @media (min-width: 450px) {
     #proyecto-portada h1,
-    #proyecto-acceso h1 {
+    #proyecto-acceso h1,
+    #cabecera h1 {
         font-size: 4rem;
     }
 }
