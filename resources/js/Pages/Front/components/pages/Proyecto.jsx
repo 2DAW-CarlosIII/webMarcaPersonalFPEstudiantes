@@ -1,6 +1,7 @@
 import NavbarComponent from "../common/Navbar";
 import React from "react";
 import { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button"
 
 import VentanaModal from '../common/VentanaModal';
 import { getProyectoById } from "@/Pages/assets/servicios/getProyectoById";
@@ -32,7 +33,21 @@ function ProyectoDetalle(props) {
         recuperarProyectoById(props.id);
     }, []);
 
+    function mostrarAutores(autor) {
 
+        return (
+            <div className="col-12 col-md-4 text-center">
+                <div className="team-member" onClick={() => setModalShow(true)}>
+                    <img src={'https://picsum.photos/356/600'} alt="Foto del usuario" />
+                    <div className="team-member-content text-white">
+                        <h4 className="fw-bold">{autor.first_name} {autor.last_name}</h4>
+                        <p>{autor.email}</p>
+                        <Button variant="light" size="sm"><a className="enlaces" href={autor.video_cv}>Video CV</a></Button>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
 
 
@@ -45,7 +60,7 @@ function ProyectoDetalle(props) {
                         <div className="row">
                             <div className="col-12 col-md-6">
                                 <h1 className="text-uppercase display-2 fw-bold">{proyectoRecuperado.nombre}</h1>
-                                <h5 className="text-black-50 mb-3 fw-bold">Profesor y alumnos</h5>
+                                <h5 className="text-black-50 mb-3 fw-bold">Tutor: {proyectoRecuperado.teacher.first_name} {proyectoRecuperado.teacher.last_name}</h5>
                                 <p className="">{proyectoRecuperado.descripcion}</p>
                                 <a href="#proyecto-autores" className="enlaces">
                                     Autores
@@ -62,34 +77,7 @@ function ProyectoDetalle(props) {
                     <section id="proyecto-autores" className="">
                         <div className="container min-vh-100 d-grid align-items-center">
                             <div className="mt-4 row g-4 d-flex justify-content-center">
-                                <div className="col-12 col-md-4 text-center">
-                                    <div className="team-member" onClick={() => setModalShow(true)}>
-                                        <img src={andres} alt="" />
-                                        <div className="team-member-content text-white">
-                                            <h4 className="fw-bold">Andrés Esparza</h4>
-                                            <p className="mb-0">El pro backend</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-12 col-md-4 text-center">
-                                    <div className="team-member" onClick={() => setModalShow(true)}>
-                                        <img src={jaime} alt="" />
-                                        <div className="team-member-content text-white">
-                                            <h4 className="fw-bold">Jaime Lloret</h4>
-                                            <p className="mb-0">El pro fullstack</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-12 col-md-4 text-center">
-                                    <div className="team-member" onClick={() => setModalShow(true)}>
-                                        <img src={carmen} alt="" />
-                                        <div className="team-member-content text-white">
-                                            <h4 className="fw-bold">Carmen Márquez</h4>
-                                            <p className="mb-0">La pro front</p>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                {proyectoRecuperado.users.map(mostrarAutores)}
                                 <div className="my-4 col-12 d-flex justify-content-center">
                                     <a href="#proyecto-acceso" className="enlaces">
                                         Ver enlaces de acceso
@@ -98,9 +86,7 @@ function ProyectoDetalle(props) {
                                 </div>
                             </div>
                         </div>
-                        <VentanaModal show={modalShow} onHide={() => setModalShow(false)}></VentanaModal>
                     </section>
-
                     <section id="proyecto-detail" className="section-padding">
                     </section>
 

@@ -23,4 +23,8 @@ class Proyecto extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    public function teacher()
+    {
+        return $this->hasOne(User::class, 'id', 'docente_id');
+    }
 }

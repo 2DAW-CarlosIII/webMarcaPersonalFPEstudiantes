@@ -57,7 +57,7 @@ function LandingPage() {
                         <div className="col-12">
                             <h1 className="fw-semibold text-uppercase display-1 text-white">marca personal</h1>
                             <h5 className="text-white mt-3 mb-4">Un lugar donde podrás compartir, visualizar y editar los proyectos realizados durante el curso académico.</h5>
-                            <a href="#contacto" className="enlaces">
+                            <a href="/register" className="enlaces">
                                 <button className="button-82-pushable" role="button">
                                     <span className="button-82-shadow"></span>
                                     <span className="button-82-edge"></span>
