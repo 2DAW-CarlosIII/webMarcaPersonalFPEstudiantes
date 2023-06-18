@@ -30,8 +30,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  });
 Route::middleware('auth:sanctum')->get('/logout', [AuthenticatedSessionController::class, 'destroy']);
 route::get('teachers', [UserController::class, 'getTeachers']);
+route::get('students', [UserController::class, 'getStudents']);
 Route::apiResource('users', UserController::class);
-Route::apiResource('proyectousers', ProyectoUserController::class);
+Route::apiResource('proyectouser', ProyectoUserController::class);
 route::post('proyectos/{id}/attach', [ProyectoController::class, 'attachEstudiantes']);
 route::delete('proyectos/{id}/detach', [ProyectoController::class, 'detachEstudiantes']);
 Route::apiResource('proyectos', ProyectoController::class);

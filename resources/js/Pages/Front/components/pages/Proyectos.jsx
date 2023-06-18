@@ -20,7 +20,7 @@ function ProyectosView() {
 
     const [pagina, setPagina] = useState(1);
 
-    const [proyectosPorPagina, setProyectosPorPagina] = useState(6);
+    const [proyectosPorPagina, setProyectosPorPagina] = useState(9);
 
     const [busqueda, setBusqueda] = useState("");
 
@@ -233,6 +233,7 @@ function ProyectosView() {
                         <h5 className="fw-bold text-uppercase">{proyecto.nombre}</h5>
                         <p>{proyecto.descripcion}</p>
                         <p><strong>{proyecto.familia}</strong></p>
+                        <a href={"/proyecto/"+ proyecto.id}  className="enlaces">Leer más...</a>
                     </div>
                 </div>
             </div>
