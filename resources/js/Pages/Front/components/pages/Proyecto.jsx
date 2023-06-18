@@ -1,17 +1,21 @@
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import NavbarComponent from "../common/Navbar";
+import React from "react";
+import { useState } from "react";
+
+import VentanaModal from '../common/VentanaModal';
+
 
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import ventana from "../../../assets/images/ventana-exterior.jpg";
-import pasillo from "../../../assets/images/pasillo-gente.jpg";
-import ventanaPasillo from "../../../assets/images/ventanas-pasillo.jpg";
+import jaime from "../../../assets/images/jaime.jpg";
+import carmen from "../../../assets/images/carmen.png";
+import andres from "../../../assets/images/andres.jpg";
 
 
 function ProyectoDetalle() {
+
+    const [modalShow, setModalShow] = useState(false);
 
     return (
         <>
@@ -21,6 +25,7 @@ function ProyectoDetalle() {
                     <div className="row">
                         <div className="col-12 col-md-6">
                             <h1 className="text-uppercase display-2 fw-bold">Título del proyecto</h1>
+                            <h5 className="text-black-50 mb-3">Profesor y alumnos</h5>
                             <p className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas aut hic amet minus! At voluptates nisi, cum beatae consequatur labore voluptatem.</p>
                             <a href="#proyecto-autores" className="enlaces">
                                 Autores
@@ -36,42 +41,36 @@ function ProyectoDetalle() {
 
             <section id="proyecto-autores" className="">
                 <div className="my-4 container min-vh-100 d-grid align-items-center">
-                    <div className="row g-4">
+                    <div className="row g-4 d-flex justify-content-center">
                         <div className="col-12 col-md-4 text-center">
-                            <a href="">
-                                <div className="team-member">
-                                    <img src={ventana} alt="" />
-                                    <div className="team-member-content text-white">
-                                        <h4 className="fw-bold">Andrés Esparza</h4>
-                                        <p className="mb-0">El pro backend</p>
-                                    </div>
+                            <div className="team-member" onClick={() => setModalShow(true)}>
+                                <img src={andres} alt="" />
+                                <div className="team-member-content text-white">
+                                    <h4 className="fw-bold">Andrés Esparza</h4>
+                                    <p className="mb-0">El pro backend</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                         <div className="col-12 col-md-4 text-center">
-                            <a href="">
-                                <div className="team-member">
-                                    <img src={pasillo} alt="" />
-                                    <div className="team-member-content text-white">
-                                        <h4 className="fw-bold">Jaime Lloret</h4>
-                                        <p className="mb-0">El pro fullstack</p>
-                                    </div>
+                            <div className="team-member" onClick={() => setModalShow(true)}>
+                                <img src={jaime} alt="" />
+                                <div className="team-member-content text-white">
+                                    <h4 className="fw-bold">Jaime Lloret</h4>
+                                    <p className="mb-0">El pro fullstack</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                         <div className="col-12 col-md-4 text-center">
-                            <a href="">
-                                <div className="team-member">
-                                    <img src={ventanaPasillo} alt="" />
-                                    <div className="team-member-content text-white">
-                                        <h4 className="fw-bold">Carmen Márquez</h4>
-                                        <p className="mb-0">La pro front</p>
-                                    </div>
+                            <div className="team-member" onClick={() => setModalShow(true)}>
+                                <img src={carmen} alt="" />
+                                <div className="team-member-content text-white">
+                                    <h4 className="fw-bold">Carmen Márquez</h4>
+                                    <p className="mb-0">La pro front</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
 
-                        <div className="mt-4 col-12">
+                        <div className="mt-4 col-12 d-flex justify-content-center">
                             <a href="#proyecto-acceso" className="enlaces">
                                 Ver enlaces de acceso
                                 <ExpandMoreIcon></ExpandMoreIcon>
@@ -79,6 +78,7 @@ function ProyectoDetalle() {
                         </div>
                     </div>
                 </div>
+                <VentanaModal show={modalShow} onHide={() => setModalShow(false)}></VentanaModal>
             </section>
 
             <section id="proyecto-detail" className="section-padding">
