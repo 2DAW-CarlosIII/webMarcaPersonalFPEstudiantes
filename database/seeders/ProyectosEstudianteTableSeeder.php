@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\ProyectoUser;
+use App\Models\Proyecto;
 
 class ProyectosEstudianteTableSeeder extends Seeder
 {
@@ -21,11 +22,9 @@ class ProyectosEstudianteTableSeeder extends Seeder
     {
         ProyectoUser::truncate();
         for ($i = 1; $i <= 10; $i++) {
-            for ($j = 8; $j <= 10; $j++) {
-                DB::table('proyecto_user')->insert([
-                    'proyecto_id'=>$i,
-                    'user_id'=>$j,
-                ]);
+            for ($j = 0; $j < (random_int(1, 3)); $j++) {
+                $proyecto = Proyecto::find($i);
+                $proyecto->users()->attach(random_int(7, 12));
             }
         }
     }
