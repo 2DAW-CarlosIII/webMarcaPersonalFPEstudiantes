@@ -246,13 +246,14 @@ footer p {
     width: 100%;
 }
 
-.paginacion {
+.active>.page-link {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.pagination {
     --bs-pagination-color: var(--grey700) !important;
-    --bs-pagination-boder-color: var(--grey100) !important;
     --bs-pagination-hover-color: var(--primary-light) !important;
-    --bs-pagination-focus-color: var(--primary) !important;
-    --bs-pagination-active-bg: var(--primary) !important;
-    --bs-pagination-active-border-color: var(--primary) !important;
 }
 
 
