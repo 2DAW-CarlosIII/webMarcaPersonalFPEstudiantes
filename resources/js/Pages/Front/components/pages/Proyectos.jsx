@@ -231,7 +231,7 @@ function ProyectosView() {
                     <div className="overlay"></div>
                     <div className="container-texto p-4">
                         <h5 className="fw-bold text-uppercase">{proyecto.nombre}</h5>
-                        <p>{proyecto.url_github}</p>
+                        <p>{proyecto.descripcion}</p>
                         <p><strong>{proyecto.familia}</strong></p>
                     </div>
                 </div>
