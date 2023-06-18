@@ -76,4 +76,9 @@ class UserController extends Controller
     {
         return response(User::where('isTeacher', '=', 1)->get())->header('X-Total-Count', User::count());
     }
+
+    public function getStudents()
+    {
+        return response(User::where('isTeacher', '=', 0)->get())->header('X-Total-Count', User::count());
+    }
 }
