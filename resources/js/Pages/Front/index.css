@@ -264,7 +264,14 @@ footer p {
     background-size: cover;
 }
 
-#proyecto-autores { /*PENDIENTE CAMBIAR EL FONDO - LO DIBUJO A MANO*/
+@media (min-width: 450px) {
+    #proyecto-portada h1,
+    #proyecto-acceso h1 {
+        font-size: 4rem;
+    }
+}
+
+#proyecto-autores {
     background: linear-gradient(var(--whiteTransparent), var(--whiteTransparent)),url(images/lineasLateral.png);
     background-position: center;
     background-repeat: no-repeat;

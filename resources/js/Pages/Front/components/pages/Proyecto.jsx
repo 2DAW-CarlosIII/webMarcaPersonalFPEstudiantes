@@ -45,7 +45,7 @@ function ProyectoDetalle(props) {
                         <div className="row">
                             <div className="col-12 col-md-6">
                                 <h1 className="text-uppercase display-2 fw-bold">{proyectoRecuperado.nombre}</h1>
-                                <h5 className="text-black-50 mb-3">Profesor y alumnos</h5>
+                                <h5 className="text-black-50 mb-3 fw-bold">Profesor y alumnos</h5>
                                 <p className="">{proyectoRecuperado.descripcion}</p>
                                 <a href="#proyecto-autores" className="enlaces">
                                     Autores
@@ -60,8 +60,8 @@ function ProyectoDetalle(props) {
                     </section>
 
                     <section id="proyecto-autores" className="">
-                        <div className="my-4 container min-vh-100 d-grid align-items-center">
-                            <div className="row g-4 d-flex justify-content-center">
+                        <div className="container min-vh-100 d-grid align-items-center">
+                            <div className="mt-4 row g-4 d-flex justify-content-center">
                                 <div className="col-12 col-md-4 text-center">
                                     <div className="team-member" onClick={() => setModalShow(true)}>
                                         <img src={andres} alt="" />
@@ -90,7 +90,7 @@ function ProyectoDetalle(props) {
                                     </div>
                                 </div>
 
-                                <div className="mt-4 col-12 d-flex justify-content-center">
+                                <div className="my-4 col-12 d-flex justify-content-center">
                                     <a href="#proyecto-acceso" className="enlaces">
                                         Ver enlaces de acceso
                                         <ExpandMoreIcon></ExpandMoreIcon>
