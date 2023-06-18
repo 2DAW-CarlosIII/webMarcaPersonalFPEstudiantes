@@ -259,7 +259,7 @@ footer p {
 
 /*PROYECTO DETALLE*/
 #proyecto-portada {
-    background: linear-gradient(var(--grey), var(--whiteTransparent)),url(images/lineaDiagonal.png);
+    background: linear-gradient(var(--grey), var(--whiteTransparent)),url(/public/images/lineaDiagonal.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -273,21 +273,21 @@ footer p {
 }
 
 #proyecto-autores {
-    background: linear-gradient(var(--whiteTransparent), var(--whiteTransparent)),url(images/lineasLateral.png);
+    background: linear-gradient(var(--whiteTransparent), var(--whiteTransparent)),url(/public/images/lineasLateral.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #proyecto-acceso {
-    background: linear-gradient(var(--whiteTransparent), var(--grey)),url(images/lineav.png);
+    background: linear-gradient(var(--whiteTransparent), var(--grey)),url(/public/images/lineav.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #proyecto-detail {
-    background: linear-gradient(var(--grey900), var(--grey600)), url(images/ventana-exterior.jpg);
+    background: linear-gradient(var(--grey900), var(--grey600)), url(/public/images/ventana-exterior.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
