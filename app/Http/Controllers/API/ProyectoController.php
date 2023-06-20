@@ -14,13 +14,15 @@ class ProyectoController extends Controller
      */
     public function index(Request $request)
     {
-        //$busqueda = $request->input('filter');
-/*         $registrosProyectos = ($busqueda && array_key_exists('q', $busqueda))
-            ? Proyecto::where('nombre', 'like', '%' .$busqueda['q'] . '%')->get()
-            : Proyecto::all(); */
-            //$registrosProyectos = searchByField(array('nombre'), Proyecto::class);
-            //return response($registrosProyectos)->header('X-Total-Count', Proyecto::count());
-        return response(Proyecto::all())->header('X-Total-Count', Proyecto::count());
+            return Proyecto::all();
+    }
+
+    /**
+     * Return the total of resources.
+     */
+    public static function count()
+    {
+            return Proyecto::count();
     }
 
     /**

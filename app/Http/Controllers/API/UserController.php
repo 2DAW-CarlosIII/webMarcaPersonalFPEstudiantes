@@ -17,7 +17,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response(User::all())->header('X-Total-Count', User::count());
+        return User::all();
+    }
+
+    /**
+     * Return the total of resources.
+     */
+    public static function count()
+    {
+            return User::count();
     }
 
     /**

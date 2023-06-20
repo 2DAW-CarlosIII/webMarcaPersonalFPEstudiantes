@@ -14,7 +14,8 @@ class ProyectoResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
+        return parent::toArray($request);
+        /* [
             'id' => $this->id,
 //                'attributes' => parent::toArray($request)
             'attributes' => [
@@ -26,6 +27,6 @@ class ProyectoResource extends JsonResource
                 'familia' => $this->familia,
                 'descripcion' => $this->descripcion
             ]
-        ];
+        ]; */
     }
 }
