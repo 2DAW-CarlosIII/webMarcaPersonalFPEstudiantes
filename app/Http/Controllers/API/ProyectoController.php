@@ -14,7 +14,8 @@ class ProyectoController extends Controller
      */
     public function index(Request $request)
     {
-            return Proyecto::all();
+        $registros = filterFrontParameters(Proyecto::class);
+        return $registros->get();
     }
 
     /**
@@ -22,7 +23,7 @@ class ProyectoController extends Controller
      */
     public static function count()
     {
-            return Proyecto::count();
+        return Proyecto::count();
     }
 
     /**

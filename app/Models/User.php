@@ -25,6 +25,12 @@ class User extends Authenticatable
         'google_id'
     ];
 
+    public const filterFields = [
+        'first_name',
+        'last_name',
+        'email'
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *

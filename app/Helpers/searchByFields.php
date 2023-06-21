@@ -1,6 +1,6 @@
 <?php
 
-function searchByField($fieldsArray, $modelClass){
+/* function searchByField($fieldsArray, $modelClass){
     $busquedaFiltroQ = request()->input('filter');
     $query = $modelClass::query();
     if($busquedaFiltroQ && array_key_exists('q', $busquedaFiltroQ)) {
@@ -11,3 +11,4 @@ function searchByField($fieldsArray, $modelClass){
     }
     return $query;
 }
+ */

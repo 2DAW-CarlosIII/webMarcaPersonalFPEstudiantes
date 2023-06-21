@@ -17,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        $registros = filterFrontParameters(User::class);
+        return $registros->get();
     }
 
     /**

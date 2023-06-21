@@ -19,6 +19,16 @@ class Proyecto extends Model
         'descripcion'
     ];
 
+    public const filterFields = [
+        'nombre',
+        'docente_id',
+        'url_github',
+        'metadatos',
+        'familia',
+        'ciclo',
+        'descripcion'
+    ];
+
     public function users()
     {
         return $this->belongsToMany(User::class);
