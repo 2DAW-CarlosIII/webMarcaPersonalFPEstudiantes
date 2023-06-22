@@ -1,5 +1,6 @@
 import FooterComponent from "../common/Footer"
 import NavbarComponent from "../common/Navbar"
+import Button from "react-bootstrap/Button"
 
 import escaleras from "@/Pages/assets/images/escaleras.jpg";
 import aless from "@/Pages/assets/images/jugadores.jpg";
@@ -20,7 +21,7 @@ function ProyectosView() {
 
     const [pagina, setPagina] = useState(1);
 
-    const [proyectosPorPagina, setProyectosPorPagina] = useState(6);
+    const [proyectosPorPagina, setProyectosPorPagina] = useState(9);
 
     const [busqueda, setBusqueda] = useState("");
 
@@ -231,8 +232,9 @@ function ProyectosView() {
                     <div className="overlay"></div>
                     <div className="container-texto p-4">
                         <h5 className="fw-bold text-uppercase">{proyecto.nombre}</h5>
-                        <p>{proyecto.url_github}</p>
+                        <p>{proyecto.descripcion}</p>
                         <p><strong>{proyecto.familia}</strong></p>
+                        <Button variant="light" size="sm"><a className="enlaces" href={"/proyecto/"+ proyecto.id}>Leer más</a></Button>
                     </div>
                 </div>
             </div>

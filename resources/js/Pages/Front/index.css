@@ -5,7 +5,7 @@
     --primary: rgba(158, 31, 31);
     --primary-light: rgb(202, 145, 145);
     --primary-dark: rgba(197, 51, 51, 0.2);
-    --secondary: rgb(20, 83, 119);
+    --secondary: #1f5e9e;
 
     --black: rgb(36,36,36);
     --grey900: rgba(36, 36, 36, 0.938);
@@ -14,6 +14,7 @@
     --grey500: rgba(36, 36, 36, 0.616);
     --grey100: rgba(36, 36, 36, 0.301);
     --grey: rgba(255, 255, 255, 0.856);
+    --whiteTransparent: rgba(255, 255, 255, 0.219);
     --white: white;
 
     --body-bg: white;
@@ -202,7 +203,7 @@ footer p {
 
     transition: 0.2s ease-in-out;
     box-shadow: 0 2px 3px rgba(0,0,0,0.2);
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .container-imagen img {
@@ -245,15 +246,91 @@ footer p {
     width: 100%;
 }
 
-.paginacion {
-    --bs-pagination-color: var(--grey700) !important;
-    --bs-pagination-boder-color: var(--grey100) !important;
-    --bs-pagination-hover-color: var(--primary-light) !important;
-    --bs-pagination-focus-color: var(--primary) !important;
-    --bs-pagination-active-bg: var(--primary) !important;
-    --bs-pagination-active-border-color: var(--primary) !important;
+.active>.page-link {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
 }
 
+.pagination {
+    --bs-pagination-color: var(--grey700) !important;
+    --bs-pagination-hover-color: var(--primary-light) !important;
+}
+
+
+/*PROYECTO DETALLE*/
+#proyecto-portada {
+    background: linear-gradient(var(--grey), var(--whiteTransparent)),url(/public/images/lineaDiagonal.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (min-width: 450px) {
+    #proyecto-portada h1,
+    #proyecto-acceso h1,
+    #cabecera h1 {
+        font-size: 4rem;
+    }
+}
+
+#proyecto-autores {
+    background: linear-gradient(var(--whiteTransparent), var(--whiteTransparent)),url(/public/images/lineasLateral.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#proyecto-acceso {
+    background: linear-gradient(var(--whiteTransparent), var(--grey)),url(/public/images/lineav.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#proyecto-detail {
+    background: linear-gradient(var(--grey900), var(--grey600)), url(/public/images/ventana-exterior.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.team-member {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+    border-radius: 4px;
+}
+
+.team-member img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.team-member-content {
+    background-color: var(--grey500);
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    width: calc(100% - 50px);
+    transform: translateX(-50%);
+    padding: 24px;
+    transition: var(--transition);
+    opacity: 0;
+}
+
+.team-member:hover .team-member-content {
+    opacity: 1;
+    bottom: 24px;
+}
 
 /*ZOOM IMAGEN*/
 .image-zoom {

@@ -1,13 +1,17 @@
-import NavbarComponent from "./Front/components/common/Navbar";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from "./Front/components/pages/LandingPage";
-import FooterComponent from "./Front/components/common/Footer";
+import ProyectoDetalle from './Front/components/pages/Proyecto';
+import ProyectosView from "./Front/components/pages/Proyectos";
 
 function Front() {
     return (
         <>
-            <NavbarComponent></NavbarComponent>
-            <LandingPage></LandingPage>
-            <FooterComponent></FooterComponent>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<LandingPage/>}/>
+                    <Route path="/proyectos" element={<ProyectosView/>}/>
+                </Routes>
+            </BrowserRouter>
         </>
     )
 }

@@ -2,9 +2,12 @@ import { Admin, Resource, ListGuesser } from "react-admin";
 import { dataProvider } from '@/Providers/dataProvider'
 import { authProvider } from '@/Providers/authProvider'
 import { ProyectoList, ProyectoCreate, ProyectoEdit } from '../RAResources/proyectos';
+import { ProyectoUserList, ProyectoUserCreate } from "@/RAResources/ProyectoUser";
 import { UserList, UserEdit } from '../RAResources/users';
 import loginPage from '@/Pages/Auth/Login';
 import jsonServerProvider from 'ra-data-json-server';
+import ProyectosIcon from '@mui/icons-material/NoteAlt';
+import UsersIcon from '@mui/icons-material/AccountCircle';
 
 //const dataProvider = jsonServerProvider('http://localhost/api/records');
 
@@ -15,8 +18,9 @@ const Dasboard = () => (
     loginPage={loginPage}
     basename="/dashboard"
   >
-    <Resource name="proyectos" list={ProyectoList} edit={ProyectoEdit} create={ProyectoCreate} />
-    <Resource name="users" list={UserList} edit={UserEdit} />
+    <Resource name="proyectos" list={ProyectoList} edit={ProyectoEdit} create={ProyectoCreate} icon={ProyectosIcon}/>
+    <Resource name="users" list={UserList} edit={UserEdit} icon={UsersIcon} />
+    <Resource name="proyectouser" list={ProyectoUserList} create={ProyectoUserCreate} options={{label: "Proyectos por alumno"}}/>
 
   </Admin>
 );
