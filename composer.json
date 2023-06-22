@@ -34,7 +34,7 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/searchByFields.php"
+            "app/Helpers/filterFrontParameters.php"
         ]
     },
     "autoload-dev": {
