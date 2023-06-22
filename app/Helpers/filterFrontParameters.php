@@ -3,27 +3,24 @@
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
 function filterFrontParameters($modelClass) {
-    $fieldsArray = $modelClass::filterFields ?? [];
-    $query = searchByField($fieldsArray, $modelClass);
-    $request = request();
-    if(strtoupper($request->method()) == 'GET' && count($parameters = $request->query()) > 0 ) {
-        if(array_key_exists('_sort', $parameters)) {
-            $order = $parameters['_order'] ?? 'ASC';
-            $query->orderBy($parameters['_sort'], $order);
-        }
-        if(array_key_exists('_end', $parameters)) {
-            $query->limit($parameters['_end']);
-        }
-        if(array_key_exists('_start', $parameters)) {
-            $query->offset($parameters['_start']);
-        }
-    }
+    // inicializamos una nueva consulta QueryBuilder
+    $query = $modelClass::query();
+
+    // uso del cuadro de búsqueda de React-Admin
+    $query = searchByField($modelClass, $query);
+
+    // Gestión de la paginación
+    addPaginate($query);
+
+    // Selección de registros relacionados
     selectByIds($query);
+
+    //retorno de la consulta resultante
     return $query;
 }
 
-function searchByField($fieldsArray, $modelClass){
-    $query = $modelClass::query();
+function searchByField($modelClass, &$query){
+    $fieldsArray = $modelClass::filterFields ?? [];
     foreach ($fieldsArray as $key => $fieldName) {
         if($filtro = request()->input($fieldName)) {
             $query = $query
@@ -43,11 +40,27 @@ function searchByField($fieldsArray, $modelClass){
     return $query;
 }
 
+function addPaginate(&$query) {
+    $request = request();
+    if(strtoupper($request->method()) == 'GET' && count($parameters = $request->query()) > 0 ) {
+        if(array_key_exists('_sort', $parameters)) {
+            $order = $parameters['_order'] ?? 'ASC';
+            $query->orderBy($parameters['_sort'], $order);
+        }
+        if(array_key_exists('_end', $parameters)) {
+            $query->limit($parameters['_end']);
+        }
+        if(array_key_exists('_start', $parameters)) {
+            $query->offset($parameters['_start']);
+        }
+    }
+}
+
 function selectByIds(&$query) {
     $queryString = request()->server->all()['QUERY_STRING'];
     $parameters = proper_parse_str($queryString);
-    if(array_key_exists('id', $parameters) > 0) {
-        $query->whereIn('id', $parameters['id']);
+    if(array_key_exists('id', $parameters)) {
+        $query->whereIn('id', is_array($parameters['id']) ? $parameters['id'] : array($parameters['id']));
     }
     return $query;
 }

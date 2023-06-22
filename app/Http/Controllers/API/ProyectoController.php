@@ -12,7 +12,7 @@ class ProyectoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         $registros = filterFrontParameters(Proyecto::class);
         return $registros->get();
