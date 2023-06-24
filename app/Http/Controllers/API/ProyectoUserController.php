@@ -10,7 +10,16 @@ class ProyectoUserController extends Controller
 {
     public function index(Request $request)
     {
-        return response(ProyectoUser::all())->header('X-Total-Count', ProyectoUser::count());
+        $registros = filterFrontParameters(ProyectoUser::class);
+        return $registros->get();
+    }
+
+    /**
+     * Return the total of resources.
+     */
+    public static function count()
+    {
+        return ProyectoUser::count();
     }
 
     public function show(ProyectoUser $ProyectoUser)

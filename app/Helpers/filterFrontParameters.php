@@ -58,9 +58,11 @@ function addPaginate(&$query) {
 
 function selectByIds(&$query) {
     $queryString = request()->server->all()['QUERY_STRING'];
-    $parameters = proper_parse_str($queryString);
-    if(array_key_exists('id', $parameters)) {
-        $query->whereIn('id', is_array($parameters['id']) ? $parameters['id'] : array($parameters['id']));
+    if(strlen($queryString) > 0) {
+        $parameters = proper_parse_str($queryString);
+        if(array_key_exists('id', $parameters)) {
+            $query->whereIn('id', is_array($parameters['id']) ? $parameters['id'] : array($parameters['id']));
+        }
     }
     return $query;
 }

@@ -12,4 +12,9 @@ class ProyectoUser extends Pivot
         'proyecto_id',
         'user_id'
     ];
+
+    public const filterFields = [
+        'proyecto_id',
+        'user_id'
+    ];
 }
