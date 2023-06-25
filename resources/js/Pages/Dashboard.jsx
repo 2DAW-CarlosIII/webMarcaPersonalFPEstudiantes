@@ -1,5 +1,5 @@
 import { Admin, Resource, ListGuesser } from "react-admin";
-import { dataProvider } from '@/Providers/dataProvider'
+import dataProvider from '@/Providers/extendedDataProvider'
 import { authProvider } from '@/Providers/authProvider'
 import { ProyectoList, ProyectoCreate, ProyectoEdit } from '../RAResources/proyectos';
 import { ProyectoUserList, ProyectoUserCreate } from "@/RAResources/ProyectoUser";

@@ -37,7 +37,33 @@ const addCustomDataProviderMethods = dataProvider => ({
     updateUserProfile(params) {
       localStorage.setItem("profile", JSON.stringify({ id: 'unique-id', ...params.data }));
       return Promise.resolve({ data: params.data });
-    }
+    },
+    update: (resource, params) => {
+        if (resource !== 'proyectos' || !params.data.repozip) {
+            return dataProvider.update(resource, params);
+        }
+
+        let formData = new FormData();
+        for (const property in params.data) {
+            formData.append(`${property}`, `${params.data[property]}`);
+        }
+
+        formData.append('repoZip', params.data.repozip.rawFile)
+        formData.append('_method', 'PUT')
+        const httpClient = fetchUtils.fetchJson
+
+        const url = `api/${resource}/${params.id}`
+        return httpClient(url, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(json => {
+            return {
+                ...json,
+                data: json.json
+            }
+        })
+    },
   });
 
   export default addCustomDataProviderMethods(
