@@ -10,7 +10,8 @@ import {
     SimpleForm,
     ReferenceInput,
     TextInput,
-    SelectInput
+    SelectInput,
+    FileInput, FileField
 } from 'react-admin';
 
 import { useRecordContext } from 'react-admin';
@@ -87,6 +88,9 @@ export const ProyectoEdit = () => (
                 { id: 'Desarrollo de aplicaciones web', name: 'Desarrollo de aplicaciones web' },
                 { id: 'Desarrollo de aplicaciones multiplataforma', name: 'Desarrollo de aplicaciones multiplataforma' }
             ]} />
+            <FileInput source="repozip" label="Archivo comprimido con el proyecto">
+                <FileField source="src" title="title" />
+            </FileInput>
         </SimpleForm>
     </Edit>
 );

@@ -17,6 +17,7 @@ class Proyecto extends Model
         'familia',
         'ciclo',
         'descripcion',
+        'repozip',
     ];
 
     public const filterFields = [
