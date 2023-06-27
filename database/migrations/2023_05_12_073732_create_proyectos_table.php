@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('docente_id')->unsigned()->nullable();
             $table->foreign('docente_id')->references('id')->on('users');
             $table->string('nombre');
-            $table->string('url_github');
+            $table->string('url_github')->nullable();
             $table->string('metadatos');
             $table->string('familia');
             $table->string('descripcion')->nullable();

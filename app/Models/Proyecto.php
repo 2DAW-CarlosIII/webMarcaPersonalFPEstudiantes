@@ -38,4 +38,33 @@ class Proyecto extends Model
     {
         return $this->hasOne(User::class, 'id', 'docente_id');
     }
+
+    public function createRepoName() {
+        // TODO obtener un nombre según curso, familia, ciclo, nombre
+        return "prueba";
+    }
+
+    public function getRepoNameFromURL() {
+        $url = $this->url_github;
+        $repoName = substr($url, strripos($url, '/') + 1);
+        return $repoName;
+    }
+
+    public function urlPerteneceOrganizacion() {
+        return strpos($this->url_github, env('GITHUB_OWNER')) > 0;
+    }
+
+    public function getGithubSettings() {
+        // TODO obtener un nombre según curso, familia, ciclo, nombre
+        return [
+            'org' => env('GITHUB_OWNER'),
+            'name' => $this->nombre,
+            'description' => $this->descripcion,
+            'homepage' => $this->url_github,
+            'private' => false,
+            'has_issues' => true,
+            'has_projects' => false,
+            'has_wiki' => false,
+        ];
+    }
 }

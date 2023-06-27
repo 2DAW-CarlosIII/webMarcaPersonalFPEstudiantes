@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Proyecto;
 use Illuminate\Http\Request;
 use App\Http\Resources\ProyectoResource;
+use App\Providers\GitHub;
+
 
 class ProyectoController extends Controller
 {
@@ -53,12 +55,34 @@ class ProyectoController extends Controller
      */
     public function update(Request $request, Proyecto $proyecto)
     {
+        // TODO control de excepciones
         $proyectoData = $request->all();
         if($proyectoRepoZip = $request->file('repoZip')) {
-            $path = $proyectoRepoZip->store('public/repoZips');
+            // TODO para el proyecto no es necesario almacenar el fichero en la base de datos ni en public
+            // Es posible hacer el push desde el archivo recién cargado.
+            $path = $proyectoRepoZip->store('public' . DIRECTORY_SEPARATOR . 'repoZips');
+            $path = 'public' . DIRECTORY_SEPARATOR
+                . 'storage' . DIRECTORY_SEPARATOR
+                . 'repoZips' . DIRECTORY_SEPARATOR
+                . $proyectoRepoZip->hashName();
             $proyectoData['repozip'] = $path;
         }
+
+        if (isset($path) && strlen($proyecto->url_github) == 0) {
+            $githubResponse = GitHub::createRepo($proyecto);
+            if($githubResponse->successful()) {
+                $proyectoData['url_github'] = $githubResponse->collect()->get('html_url');
+            }
+        }
+
         $proyecto->update($proyectoData);
+
+        if (isset($path) && $proyecto->urlPerteneceOrganizacion()) {
+            GitHub::pushZipFile($proyecto, $path);
+            unlink(base_path() . DIRECTORY_SEPARATOR . $path);
+        }
+
+//        GitHub::deleteRepo($proyecto);
 
         return $proyecto;
     }

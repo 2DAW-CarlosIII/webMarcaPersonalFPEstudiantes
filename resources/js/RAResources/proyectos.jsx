@@ -89,7 +89,7 @@ export const ProyectoEdit = () => (
                 { id: 'Desarrollo de aplicaciones multiplataforma', name: 'Desarrollo de aplicaciones multiplataforma' }
             ]} />
             <FileInput source="repozip" label="Archivo comprimido con el proyecto">
-                <FileField source="src" title="title" />
+                <FileField source="src" title="title" accept="application/zip" />
             </FileInput>
         </SimpleForm>
     </Edit>
