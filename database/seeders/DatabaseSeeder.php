@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(ProyectosTableSeeder::class);
         $this->call(ProyectosEstudianteTableSeeder::class);
+        $this->call(FamiliasProfesionalesSeeder::class);
+        $this->call(CiclosSeeder::class);
 
         Model::reguard();
 
