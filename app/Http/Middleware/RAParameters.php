@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Exception;
 use Illuminate\Http\Request;
 
 class RAParameters
@@ -19,10 +20,12 @@ class RAParameters
             abort_unless(is_callable(array($request->route()->controller::class, 'count')), 500, "It must exists a count() method in the controller.");
             $response->header('X-Total-Count', call_user_func(array($request->route()->controller, 'count')));
         }
-        $responseData = $response->getData();
-        if(isset($responseData->data)) {
-            $response->setData($responseData->data);
-        }
+        try {
+            $responseData = $response->getData();
+            if(isset($responseData->data)) {
+                $response->setData($responseData->data);
+            }
+        } catch (Exception $e) {}
         return $response;
     }
 
