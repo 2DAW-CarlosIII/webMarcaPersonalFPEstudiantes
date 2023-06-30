@@ -26,7 +26,8 @@ class UserController extends Controller
      */
     public static function count()
     {
-            return User::count();
+        $registros = filterFrontParameters(User::class);
+        return $registros->count();
     }
 
     /**

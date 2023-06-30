@@ -19,7 +19,8 @@ class ProyectoUserController extends Controller
      */
     public static function count()
     {
-        return ProyectoUser::count();
+        $registros = filterFrontParameters(ProyectoUser::class);
+        return $registros->count();
     }
 
     public function show(ProyectoUser $ProyectoUser)

@@ -17,7 +17,6 @@ class RAParameters
         $response = $next($request);
         if($request->routeIs('*.index')) {
             abort_unless(is_callable(array($request->route()->controller::class, 'count')), 500, "It must exists a count() method in the controller.");
-            // TODO hacer el count teniendo en cuenta los parámetros de la solicitud
             $response->header('X-Total-Count', call_user_func(array($request->route()->controller, 'count')));
         }
         $responseData = $response->getData();
