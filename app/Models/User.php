@@ -56,4 +56,13 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Proyecto::class);
     }
+
+
+    /**
+     * Devolver el curriculo asociado.
+     */
+    public function curriculo()
+    {
+        return $this->hasOne(Curriculo::class, 'user_id');
+    }
 }

@@ -15,6 +15,7 @@ import {
 } from 'react-admin';
 
 import { useRecordContext } from 'react-admin';
+import { Link } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
 
 const userFilters = [
@@ -24,6 +25,14 @@ const userFilters = [
 const convertirValor = (record) => {
     return record.isTeacher === 1 ? 'Profesor' : 'Alumno';
 };
+
+const curriculoField = (user) => {
+    const curriculoShowPage = user.curriculo?.id ? `/curriculos/${user.curriculo.id}/show` : ''
+    const curriculoText = user.curriculo?.id ? `Ver` : ''
+
+    return <Link to={curriculoShowPage}>{curriculoText}</Link>;
+};
+
 
 export const UserList = () => {
     const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
@@ -49,6 +58,9 @@ export const UserList = () => {
                         label="Rol"
                         render={convertirValor}
                     />
+                    <FunctionField
+                        label="Currículo"
+                        render={curriculoField}/>
                     <EditButton />
                 </Datagrid>
             )}
