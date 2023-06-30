@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $registros = filterFrontParameters(User::class);
-        return $registros->get();
+        return UserResource::collection($registros->get());
     }
 
     /**
