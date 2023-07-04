@@ -18,9 +18,8 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('url_github')->nullable();
             $table->string('metadatos');
-            $table->string('familia');
             $table->string('descripcion')->nullable();
-            $table->string('ciclo');
+            $table->bigInteger('ciclo_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

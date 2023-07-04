@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->char('codCiclo', 6);
             $table->char('codFamilia', 4);
+            $table->unsignedBigInteger('familia_id');
             $table->string('grado', 30)->nullable();
             $table->string('nombre', 255);
             $table->timestamps();
             $table->unique(['codFamilia', 'codCiclo']);
-            $table->foreign('codFamilia')->references('codigo')->on('familias_profesionales');
+            $table->foreign('familia_id')->references('id')->on('familias_profesionales');
         });
     }
 

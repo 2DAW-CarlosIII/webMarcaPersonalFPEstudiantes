@@ -14,8 +14,7 @@ class Proyecto extends Model
         'docente_id',
         'url_github',
         'metadatos',
-        'familia',
-        'ciclo',
+        'ciclo_id',
         'descripcion',
         'repozip',
     ];
@@ -25,8 +24,7 @@ class Proyecto extends Model
         'docente_id',
         'url_github',
         'metadatos',
-        'familia',
-        'ciclo',
+        'ciclo_id',
         'descripcion'
     ];
 
