@@ -14,10 +14,12 @@ class CiclosSeeder extends Seeder
     public function run(): void
     {
         DB::table('ciclos')->truncate();
+        $familias = FamiliasProfesionalesSeeder::$familias_profesionales;
         foreach (self::$ciclos as $ciclo) {
             DB::table('ciclos')->insert([
                 'codCiclo' => $ciclo['codCiclo'],
                 'codFamilia' => $ciclo['codFamilia'],
+                'familia_id' => array_search($ciclo['codFamilia'], array_column($familias, 'codigo')) + 1,
                 'grado' => $ciclo['grado'],
                 'nombre' => $ciclo['nombre'],
             ]);

@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Exception;
 use Illuminate\Http\Request;
+use Throwable;
 
 class RAParameters
 {
@@ -25,7 +26,7 @@ class RAParameters
             if(isset($responseData->data)) {
                 $response->setData($responseData->data);
             }
-        } catch (Exception $e) {}
+        } catch (Throwable $e) {}
         return $response;
     }
 

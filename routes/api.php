@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\CicloController;
+use App\Http\Controllers\API\FamiliaProfesionalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ProyectoController;
@@ -38,7 +40,10 @@ route::post('proyectos/{id}/attach', [ProyectoController::class, 'attachEstudian
 route::delete('proyectos/{id}/detach', [ProyectoController::class, 'detachEstudiantes']);
 Route::apiResource('proyectos', ProyectoController::class);
 Route::apiResource('proyectosFront', ProyectoFrontController::class);
-
+Route::apiResource('familias', FamiliaProfesionalController::class,[
+    'familia' => 'familiaProfesional'
+]);
+Route::apiResource('ciclos', CicloController::class);
 // emite un nuevo token
 Route::post('tokens', [TokenController::class, 'store']);
 // elimina el token del usuario autenticado

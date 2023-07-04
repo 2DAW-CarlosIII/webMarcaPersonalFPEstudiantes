@@ -24,7 +24,7 @@ class FamiliasProfesionalesSeeder extends Seeder
     }
 
 /* `marcapersonalfp`.`familias_profesionales` */
-private static $familias_profesionales = array(
+public static $familias_profesionales = array(
   array('codigo' => 'ADG','nombre' => 'ACTIVIDADES FÍSICAS Y DEPORTIVAS'),
   array('codigo' => 'AFD','nombre' => 'ADMINISTRACIÓN Y GESTIÓN'),
   array('codigo' => 'AGA','nombre' => 'AGRARIA'),

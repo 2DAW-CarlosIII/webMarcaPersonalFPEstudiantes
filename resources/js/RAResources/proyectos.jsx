@@ -11,16 +11,65 @@ import {
     ReferenceInput,
     TextInput,
     SelectInput,
-    FileInput, FileField
+    FileInput, FileField,
+    useGetList, useGetOne,
 } from 'react-admin';
 
 import { useRecordContext } from 'react-admin';
 import { useMediaQuery } from '@mui/material';
+import { useWatch } from 'react-hook-form';
 
 const proyectoFilters = [
     <TextInput source="q" label="Search" alwaysOn />,
     <ReferenceInput source="docente_id" label="User" reference="users" />
 ];
+
+const ProyectoTitle = () => {
+    const record = useRecordContext();
+    return <span>Proyecto {record ? `"${record.nombre}"` : ''}</span>;
+};
+
+const FamiliaInput = props => {
+    const {data:familiasProfesionales, isLoading:cargandoFamilias} = useGetList(
+        'familias',
+        {
+            pagination: { page: 1, perPage: 100 },
+            sort: { field: 'nombre', order: 'ASC' },
+        }
+    )
+    return (
+        <SelectInput
+            source="familia_id"
+            choices={familiasProfesionales ? familiasProfesionales : []}
+            optionText="nombre"
+            optionValue="id"
+            isLoading={cargandoFamilias}
+            {...props}
+        />
+    );
+};
+
+const CicloInput = props => {
+    const familia_id = useWatch({ name: 'familia_id' });
+    const {data:familiaProfesional, isLoading:cargandoCiclosFamilia} = useGetOne(
+        'familias',
+        { id: familia_id},
+        {
+            pagination: { page: 1, perPage: 100 },
+            sort: { field: 'nombre', order: 'ASC' },
+        }
+    )
+    return (
+        <SelectInput
+            source="ciclo_id"
+            choices={familiaProfesional ? familiaProfesional.ciclos : []}
+            optionText="nombre"
+            optionValue="id"
+            isLoading={cargandoCiclosFamilia}
+            {...props}
+        />
+    );
+};
 
 export const ProyectoList = () => {
     const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
@@ -44,9 +93,10 @@ export const ProyectoList = () => {
                     <TextField source="nombre" />
                     <TextField source="metadatos" />
                     <TextField source="url_github" />
-                    <TextField source="familia" />
                     <TextField source="descripcion" />
-                    <TextField source="ciclo" />
+                    <ReferenceField source="ciclo_id" reference="ciclos">
+                        <TextField source="nombre" />
+                    </ReferenceField>
                     <EditButton />
                 </Datagrid>
             )}
@@ -54,12 +104,8 @@ export const ProyectoList = () => {
     );
 }
 
-const ProyectoTitle = () => {
-    const record = useRecordContext();
-    return <span>Proyecto {record ? `"${record.nombre}"` : ''}</span>;
-};
-
-export const ProyectoEdit = () => (
+export const ProyectoEdit = () => {
+    return (
     <Edit title={<ProyectoTitle />}>
         <SimpleForm>
             <TextInput source="id" disabled />
@@ -68,32 +114,18 @@ export const ProyectoEdit = () => (
             </ReferenceInput>
             <TextInput source="nombre" />
             <TextInput source="metadatos" />
-            <SelectInput source="familia" choices={[
-                { id: 'informatica y comunicaciones', name: 'Informática' },
-                { id: 'comercio y marketing', name: 'Comercio' },
-                { id: 'administracion y gestion', name: 'Administración' },
-            ]} />
             <TextInput source="url_github" />
             <TextInput source="descripcion" />
-            <SelectInput source="ciclo" choices={[
-                { id: 'Gestión administrativa', name: 'Gestión administrativa' },
-                { id: 'Administración y finanzas', name: 'Administración y finanzas' },
-                { id: 'Asistencia a la dirección', name: 'Asistencia a la dirección' },
-                { id: 'Actividades comerciales', name: 'Actividades comerciales' },
-                { id: 'Comercio internacional', name: 'Comercio internacional' },
-                { id: 'Transporte y logística', name: 'Transporte y logística' },
-                { id: 'Marketing y publicidad', name: 'Marketing y publicidad' },
-                { id: 'Sistemas microinformáticos y redes', name: 'Sistemas microinformáticos y redes' },
-                { id: 'Administración de sistemas informáticos en red', name: 'Administración de sistemas informáticos en red' },
-                { id: 'Desarrollo de aplicaciones web', name: 'Desarrollo de aplicaciones web' },
-                { id: 'Desarrollo de aplicaciones multiplataforma', name: 'Desarrollo de aplicaciones multiplataforma' }
-            ]} />
+            <ReferenceInput source="ciclo_id" reference="ciclos" perPage={200} sort={{field: "familia_id"}}>
+                <SelectInput optionText="nombre" />
+            </ReferenceInput>
             <FileInput source="repozip" label="Archivo comprimido con el proyecto">
                 <FileField source="src" title="title" accept="application/zip" />
             </FileInput>
         </SimpleForm>
     </Edit>
 );
+    }
 
 export const ProyectoCreate = () => (
     <Create>
@@ -103,26 +135,10 @@ export const ProyectoCreate = () => (
             </ReferenceInput>
             <TextInput source="nombre" />
             <TextInput source="metadatos" />
-            <SelectInput source="familia" choices={[
-                { id: 'informatica y comunicaciones', name: 'Informática' },
-                { id: 'comercio y marketing', name: 'Comercio' },
-                { id: 'administracion y gestion', name: 'Administración' },
-            ]} />
             <TextInput source="url_github" />
             <TextInput source="descripcion" />
-            <SelectInput source="ciclo" choices={[
-                { id: 'Gestión administrativa', name: 'Gestión administrativa' },
-                { id: 'Administración y finanzas', name: 'Administración y finanzas' },
-                { id: 'Asistencia a la dirección', name: 'Asistencia a la dirección' },
-                { id: 'Actividades comerciales', name: 'Actividades comerciales' },
-                { id: 'Comercio internacional', name: 'Comercio internacional' },
-                { id: 'Transporte y logística', name: 'Transporte y logística' },
-                { id: 'Marketing y publicidad', name: 'Marketing y publicidad' },
-                { id: 'Sistemas microinformáticos y redes', name: 'Sistemas microinformáticos y redes' },
-                { id: 'Administración de sistemas informáticos en red', name: 'Administración de sistemas informáticos en red' },
-                { id: 'Desarrollo de aplicaciones web', name: 'Desarrollo de aplicaciones web' },
-                { id: 'Desarrollo de aplicaciones multiplataforma', name: 'Desarrollo de aplicaciones multiplataforma' }
-            ]} />
+            <FamiliaInput />
+            <CicloInput />
         </SimpleForm>
     </Create>
 );
