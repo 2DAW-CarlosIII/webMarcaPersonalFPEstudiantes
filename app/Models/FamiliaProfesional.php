@@ -11,9 +11,6 @@ class FamiliaProfesional extends Model
 
     protected $table = 'familias_profesionales';
 
-    protected $primaryKey = 'codigo';
-    public $incrementing = false;
-
     public const filterFields = [
         'nombre',
     ];
