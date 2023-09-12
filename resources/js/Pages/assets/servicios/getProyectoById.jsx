@@ -1,6 +1,6 @@
 export function getProyectoById(id) {
 
-    let apiURL = `http://localhost/api/proyectos/${id}`;
+    let apiURL = `/api/proyectos/${id}`;
 
     return fetch(apiURL, {
        method: 'GET',

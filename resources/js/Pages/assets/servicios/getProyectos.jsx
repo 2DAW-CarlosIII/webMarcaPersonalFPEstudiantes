@@ -1,6 +1,6 @@
 export function getProyectos() {
 
-    let apiURL = `http://localhost/api/proyectos`;
+    let apiURL = `/api/proyectos`;
 
     return fetch(apiURL, {
        method: 'GET',

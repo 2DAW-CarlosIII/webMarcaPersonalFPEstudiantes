@@ -9,7 +9,7 @@ import jsonServerProvider from 'ra-data-json-server';
 import ProyectosIcon from '@mui/icons-material/NoteAlt';
 import UsersIcon from '@mui/icons-material/AccountCircle';
 
-//const dataProvider = jsonServerProvider('http://localhost/api/records');
+//const dataProvider = jsonServerProvider('/api/records');
 
 const Dasboard = () => (
   <Admin
